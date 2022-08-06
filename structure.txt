@@ -1,0 +1,55 @@
+header grid-template//grid template-col 1 2 areas '1 2' '1 .'
+  a.logo//grid-area 1
+    logo desc
+  nav menu //grid-area 2
+    menu__list
+      menu__item
+      ... 
+  start-sreen //grid-area 1
+    start-screen__title
+    start-screen__desc
+  button
+section about
+  .container
+    block-wrapper
+      about__img block__img
+      about__title block__title
+      about__desc block__desc
+section card
+  card__list
+    card__item
+      card__img
+      card__name
+      card__button
+  button
+section help
+  help__title
+  help__list
+    help__item
+      help__img
+      help__desc
+section donation
+  .container
+    block-wrapper
+      donation__img block__img
+      donation__title block__title
+      donation__desc block__desc
+footer
+  contact
+    title
+    email
+    phone
+  address
+    address_item
+    address_item
+
+detail
+  img
+  detail__desc
+    detail__name  
+    detail__breed
+    detail__text
+    detail__list
+      detail__spec
+      ...
+  
