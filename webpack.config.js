@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 let mode = 'development';
 if (process.env.NODE_ENV === 'production') {
@@ -41,6 +42,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.pug',
     }),
+    new ESLintPlugin(),
   ],
   module: {
     rules: [
