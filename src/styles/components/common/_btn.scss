@@ -1,0 +1,71 @@
+@import '../../mixin';
+// @import '../../variables';
+
+.btn {
+  @extend %btnMedium;
+  cursor: pointer;
+  max-width: 298px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: $btnBorderRadius;
+  padding: 15px;
+  background: $colorOrange;
+
+  &--active {
+    background-color: $colorGreen;
+  }
+  &--disabled {
+    background-color: $colorGray;
+  }
+  &::hover {
+    background: $colorOrangeHover;
+  }
+
+  &-arrow {
+    max-width: 62px;
+    max-height: 62px;
+    height: 100%;
+    width: 100%;
+    background: $colorOrange;
+    padding: 15px;
+    border-radius: 100%;
+    &--active {
+      background: $colorOrange;
+    }
+  }
+
+  &-plus {
+    padding: 11px;
+    &--active {
+      border: 1px solid $colorGreen;
+    }
+  }
+
+  &--square {
+    border-radius: 5px;
+    max-width: 298px;
+    width: 100%;
+    // display: flex;
+    a {
+      width: 100%;
+    }
+  }
+
+  &-submit {
+    @extend %bodyRegular;
+    display: inline-block;
+    border: 1px solid $colorBlackBlue;
+    background: $colorGrayLight;
+    padding: 10px 38px;
+    border-radius: 5px;
+    &--active {
+      border-color: $colorGreen;
+      color: $colorGreen;
+    }
+    &--disabled {
+      border-color: $colorRed;
+      color: $colorRed;
+    }
+  }
+}

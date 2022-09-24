@@ -102,7 +102,7 @@ table {
 }
 
 input {
-  -webkit-appearance: none;
+  // -webkit-appearance: none;
   border-radius: 0;
 }
 
@@ -115,14 +115,14 @@ a {
 }
 
 p {
-  font: $paragraphFont;
-  line-height: 160%;
+  // font: $paragraphFont;
+  // line-height: 160%;
 }
 h2,
 h3,
 h4,
 h5 {
-  font: $titleFont;
-  line-height: 130%;
-  color: $titleColor;
+  // font: $titleFont;
+  // line-height: 130%;
+  // color: $titleColor;
 }

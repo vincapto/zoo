@@ -1,0 +1,41 @@
+// @import '../../variables';
+
+.input {
+  @extend %btnMedium;
+  color: $colorBlack;
+  text-transform: capitalize;
+  border-radius: 2px;
+  padding: 10px;
+  border-width: 2px;
+  border-color: $colorOrange;
+
+  &--active {
+    color: $colorGreen;
+  }
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid $colorGrayBorder;
+    color: $colorGrayBorder;
+    border-radius: 5px;
+  }
+
+  &--dark {
+    background-color: $colorBlack;
+    color: $colorGray4;
+  }
+  &--disabled {
+    color: $colorRed;
+    border-radius: $borderInput;
+  }
+
+  &__currency {
+    &-dollar {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      width: 10px;
+      height: 20px;
+    }
+  }
+}

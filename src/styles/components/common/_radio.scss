@@ -1,0 +1,68 @@
+// @import '../../variables';
+
+.radio {
+  input[type='radio'] {
+    display: none;
+  }
+  &__mark {
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 50%;
+    &-range {
+      position: relative;
+      z-index: 2;
+      width: 10px;
+      height: 10px;
+      background-color: yellow;
+      border-radius: 50%;
+    }
+    &--transparent {
+      width: 16px;
+      height: 16px;
+      background-color: transparent;
+      border: 1px solid $colorOrangeHover;
+    }
+  }
+
+  &-input + label .radio__mark-range {
+    &::after {
+      content: '';
+      position: absolute;
+      width: 23px;
+      height: 23px;
+      border: 2px solid $colorOrangeHover;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      opacity: 0;
+      transition: $transitionSimple;
+    }
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  &-input:checked + label .radio__mark-range {
+    &::after {
+      opacity: 1;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 2px solid $colorOrangeHover;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+  }
+
+  &-input:checked + .radio__mark {
+    background-color: $colorGreen;
+    border: 1px solid $colorGreen;
+  }
+}

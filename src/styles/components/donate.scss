@@ -1,0 +1,124 @@
+.donate {
+  background: $colorOrangeGrad;
+  &__desc-title {
+    @include font-source-sans('Roboto', 36px, $colorWhite, 400, 130%);
+  }
+  &__desc-subtitle {
+    @include font-source-sans('Roboto', 16px, $colorWhite, 400, 130%);
+  }
+  &__title {
+    @include font-source-sans('Roboto', 36px, $colorOrangeTitle, 400, 130%);
+    justify-self: flex-start;
+  }
+  &__form-title {
+    @include font-source-sans('Roboto', 48px, $colorOrangeTitle, 400, 120%);
+    text-align: center;
+  }
+  &__form-subtitle {
+    @include font-source-sans('Roboto', 24px, $colorBlackBlue, 400, 120%);
+  }
+  &__count {
+    @include font-source-sans('Roboto', 72px, $colorBlack, 400, 80%);
+  }
+  &__widget {
+    display: flex;
+    flex-direction: column;
+    background: $colorGray;
+    border-radius: 20px;
+    padding: 40px 52px;
+  }
+  &__panda {
+    max-width: 284px;
+    &-wrapper {
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      max-width: 525px;
+      justify-content: space-between;
+    }
+  }
+  &__count {
+    display: flex;
+    &-desc {
+      @include font-source-sans('Roboto', 16px, $colorBlack, 400, 22.4px);
+    }
+    &-number {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__pay {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: center;
+    &-input {
+      position: relative;
+    }
+    .input {
+      &-amount {
+        max-width: 268px;
+        background-color: transparent;
+        border: 1px solid $colorGrayBorder;
+        color: $colorGrayBorder;
+        border-radius: 5px;
+      }
+    }
+    &-dollar {
+      position: absolute;
+      // left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      width: 10px;
+      height: 20px;
+    }
+
+    input[type='radio'] {
+      display: none;
+    }
+    input[type='radio'] + label {
+      // color: blue;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+    input[type='radio'] + label span {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin: -1px 4px 0 0;
+      vertical-align: middle;
+      cursor: pointer;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+    }
+
+    input[type='radio'] + label span {
+      background-color: transparent;
+      border: 1px solid $colorOrangeHover;
+    }
+
+    input[type='radio']:checked + label span {
+      background-color: $colorGreen;
+      border: 1px solid $colorGreen;
+    }
+  }
+  &__type {
+    display: flex;
+  }
+  &__radio-wrapper {
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 30px;
+  }
+
+  .radio {
+    &__text {
+      color: $colorBlackBlue;
+    }
+    &__label {
+      display: flex;
+    }
+  }
+}

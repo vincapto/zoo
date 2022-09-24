@@ -1,0 +1,146 @@
+@import 'font';
+// @import 'variables';
+@import 'mixin';
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 21px;
+  width: 100%;
+  @include respond(smallDesktop) {
+    padding: 0 30px;
+  }
+  @include respond(tablet) {
+    padding: 0 21px;
+  }
+  @include respond(mobile) {
+    padding: 0 10px;
+  }
+}
+
+.header {
+  width: 100%;
+  position: relative;
+  background: $colorBlack;
+  z-index: 3;
+}
+
+.block {
+  &__title {
+    @extend %h2Regular;
+    // @include font-source-sans('Roboto', 24px, $colorBlack, 400, 28.44px);;
+  }
+  &__text {
+    // @include font-source-sans('Roboto', 14px, $colorBlack, 400, 20px);
+
+    @include respond(mobile) {
+    }
+  }
+}
+
+.grid-half {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  &__right {
+    display: grid;
+    position: relative;
+    // left: 42px;
+    justify-items: center;
+  }
+  &__left {
+    position: relative;
+    width: 100%;
+  }
+}
+
+.common {
+  &__h2title {
+    @extend %h2Regular;
+    @include respond(mobile) {
+      font-size: 24px;
+    }
+  }
+  &__h3title {
+    @extend %h3Regular;
+    @include respond(mobile) {
+      font-size: 24px;
+    }
+  }
+  &__h4title {
+    @extend %h4subtitle;
+  }
+  &__text {
+    @extend %bodyRegular130;
+    &--high {
+      line-height: 140%;
+    }
+    &--medium {
+      font-weight: 500;
+    }
+    &--bold {
+      font-weight: 700;
+    }
+    &--center {
+      text-align: center;
+    }
+  }
+  &__textThin {
+    @extend %thinParagraph;
+  }
+  &__subtext {
+    @extend %smallParagraph;
+  }
+  &__img {
+    width: 100%;
+  }
+}
+
+.block {
+  &__title {
+    // @include font-source-sans('Roboto', 48px, $colorBlackBlue, 400, 57px);
+    @extend %h2Regular;
+    // padding-bottom: 20px;
+    @include respond(mobile) {
+      padding-bottom: 10px;
+      // grid-template-columns: 1fr;
+      @include font-source-sans('Roboto', 24px, $colorBlackBlue, 400, 28px);
+    }
+    &H3 {
+      @include font-source-sans('Roboto', 36px, $colorBlackBlue, 400, 120%);
+      @include respond(mobile) {
+        font-size: 24px;
+      }
+    }
+  }
+  &__subtitle {
+    @extend %h4subtitle;
+    @include respond(mobile) {
+      margin-top: 0;
+      margin-bottom: 11px;
+    }
+    // padding-bottom: 25px;
+    // margin-top: 40px;
+
+    // @include font-source-sans('Roboto', 24px, $colorBlackBlue, 400, 28px);
+  }
+  &__text {
+    // @include font-source-sans('Roboto', 16px, $colorBlackBlue, 400, 22px);
+    @extend %bodyRegular130;
+    margin-bottom: 20px;
+    &--bold {
+      font-weight: 700;
+    }
+    &--center {
+      text-align: center;
+    }
+  }
+  &__subtext {
+    @include font-source-sans('Roboto', 15px, $colorBlackBlue, 300, 18px);
+  }
+  &__img {
+    width: 100%;
+  }
+}

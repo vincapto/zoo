@@ -1,0 +1,131 @@
+// @import '../variables';
+
+.about {
+  position: relative;
+  &__title {
+    margin-bottom: 21px;
+    margin-left: -3px;
+    padding-left: 3px;
+    @include respond(smallDesktop) {
+      margin-left: 0;
+      padding-left: 1px;
+      // padding: 1px 3px;
+      margin-bottom: 24px;
+    }
+    @include respond(tablet) {
+      padding: 1px 3px;
+      margin-bottom: 20px;
+    }
+
+    @include respond(mobile) {
+      font-size: 24px;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+  }
+  &__subtitle {
+    margin-bottom: 32px;
+    margin-top: 56px;
+    @include respond(smallDesktop) {
+      margin-bottom: 33px;
+      margin-top: 52px;
+      padding: 0;
+      padding-left: 2px;
+    }
+    @include respond(tablet) {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    @include respond(mobile) {
+      margin-top: 0px;
+      margin-bottom: 10px;
+      padding-left: 2px;
+    }
+  }
+  &__grid {
+    margin-top: 140px;
+    margin-bottom: 177px;
+    display: grid;
+    gap: 87px;
+    grid-template-columns: minmax(auto, 608px) minmax(auto, 456px);
+    // grid-template-columns: minmax(auto, 610px) minmax(auto, 456px);
+    @include respond(smallDesktop) {
+      gap: 29px;
+      margin-top: 100px;
+      margin-bottom: 140px;
+    }
+    @include respond(tablet) {
+      grid-template-columns: 1fr;
+      margin-top: 60px;
+      margin-bottom: 58px;
+    }
+    @include respond(mobile) {
+      margin-bottom: 17px;
+    }
+  }
+  &__text {
+    // width: 99%;
+    @include respond(smallDesktop) {
+      padding-left: 3px;
+      padding-right: 3px;
+    }
+    @include respond(tablet) {
+      padding-left: 1px;
+      margin-bottom: 20px;
+    }
+    @include respond(tablet) {
+      padding-left: 1px;
+    }
+  }
+  &__flower {
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    @include respond(desktop) {
+      grid-template-columns: 1fr;
+    }
+    @include respond(tablet) {
+      width: 17%;
+      // grid-template-columns: 1fr;
+      display: block;
+    }
+  }
+  &__content {
+    max-width: 495px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @include respond(smallDesktop) {
+      justify-content: baseline;
+    }
+  }
+  &__img {
+    background: url('../images/about.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    @include respond(smallDesktop) {
+      height: 408px;
+    }
+    &-wrapper {
+      @include respond(smallDesktop) {
+        margin-top: 10px;
+        // max-height: 408px;
+        max-width: 455px;
+      }
+      @include respond(tablet) {
+        display: none;
+      }
+    }
+    // object-fit: none;
+    // padding: 15px 0;
+
+    width: 100%;
+    // padding-bottom: 100%;
+    height: 403px;
+    @include respond(tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

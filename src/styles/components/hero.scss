@@ -1,0 +1,202 @@
+// @import '../variables';
+
+.hero {
+  background: #fff url('/src/images/hero-img.png');
+  background-position-x: center;
+  background-position-y: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: local;
+  background-origin: padding-box;
+  background-clip: padding-box;
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 103px;
+
+  @include respond(smallDesktop) {
+    padding-bottom: 20px;
+  }
+
+  @include respond(tablet) {
+    padding-bottom: 5px;
+  }
+  @include respond(mobile) {
+    padding-bottom: 0;
+  }
+
+  &__content {
+    z-index: 2;
+    position: relative;
+    // left: 7px;
+    display: flex;
+    // flex-direction: column;
+    justify-content: flex-end;
+    // max-height: 474px;
+    box-sizing: content-box;
+    margin-bottom: 60px;
+    @include respond(smallDesktop) {
+      margin-bottom: 41px;
+    }
+    @include respond(tablet) {
+      margin: 0;
+    }
+  }
+  &__btn {
+    width: 100%;
+    // grid-column: 2/3;
+    margin-right: 100px;
+    position: relative;
+    // left: 45px;
+
+    // justify-self: flex-end;
+    @include respond(smallDesktop) {
+      margin-right: 110px;
+    }
+    @include respond(tablet) {
+      align-self: flex-start;
+      margin: 0;
+      bottom: 6px;
+      left: 3px;
+    }
+    @include respond(mobile) {
+      position: absolute;
+      // bottom: 368px;
+      bottom: 64.5%;
+      margin: 0;
+      left: 14px;
+      align-self: center;
+    }
+  }
+  &__round-wrapper {
+    z-index: 1;
+    position: relative;
+    max-width: 465px;
+    padding: 7%;
+    // padding-bottom: 465px;
+    // top: 13px;
+    right: 50px;
+    border-radius: 50%;
+    background: $colorOrange;
+
+    @include respond(smallDesktop) {
+      max-width: 365px;
+    }
+    // margin-top: 13px;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @include respond(smallDesktop) {
+      margin-bottom: 29px;
+    }
+    @include respond(mobile) {
+      padding-bottom: 42px;
+      margin-bottom: 105px;
+    }
+  }
+  &__title {
+    z-index: 2;
+    // max-width: calc(50% - 7%);
+    width: 500.31px;
+    // min-width: 367px;
+    position: relative;
+    // left: calc(50% - 255.64px / 2 + 176.76px);
+    margin-top: 85px;
+    text-transform: uppercase;
+    text-align: center;
+    @extend %h1Bold;
+    color: $colorWhite;
+    strong {
+      color: $colorYellow;
+    }
+
+    @include respond(smallDesktop) {
+      font-size: 85px;
+      line-height: 75%;
+      margin-top: 43px;
+      right: 64px;
+      max-width: fit-content;
+      width: 400px;
+    }
+    @include respond(tablet) {
+      margin-top: 49px;
+      font-size: 54.2px;
+      line-height: 75%;
+      right: 0;
+      max-width: auto;
+      width: 255.64px;
+    }
+    @include respond(mobile) {
+      margin-top: 40px;
+      font-size: 28px;
+      line-height: 75%;
+      min-width: min-content;
+      max-width: auto;
+      width: 39vw;
+    }
+    &::before {
+      z-index: -1;
+      position: absolute;
+      content: '';
+      border-radius: 50%;
+      width: 463px;
+      bottom: 8px;
+      padding-bottom: 465px;
+      background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+      left: -14%;
+
+      @include respond(smallDesktop) {
+        left: -17%;
+        bottom: 7px;
+        width: 367px;
+        padding-bottom: 367px;
+      }
+      @include respond(tablet) {
+        min-height: auto;
+        bottom: 4px;
+        width: 237px;
+        min-width: min-content;
+        left: -17%;
+        padding-bottom: 237px;
+      }
+      @include respond(mobile) {
+        bottom: 5px;
+        right: 22%;
+        width: 100%;
+        max-width: 36vw;
+        padding-bottom: 37vw;
+        min-width: min-content;
+        left: -15%;
+      }
+    }
+  }
+  &__img {
+    z-index: 1;
+    width: 465px;
+    padding-bottom: 465px;
+    top: 13px;
+    right: 150px;
+    border-radius: 50%;
+    background: $colorOrange;
+    margin-top: 13px;
+
+    // position: absolute;
+    // overflow: hidden;
+    // width: 465px;
+    // height: 465px;
+    // // width: 90%;
+    // // padding-bottom: 90%;
+    // top: 13px;
+    // right: 150px;
+    border-radius: 50%;
+    @include respond(smallDesktop) {
+      font-size: 85px;
+      line-height: 75%;
+    }
+  }
+
+  &__text {
+    z-index: 2;
+    @include font-source-sans('Roboto', 16px, $colorWhite, 400, 30px);
+  }
+}

@@ -1,0 +1,55 @@
+@mixin font-source-sans(
+  $font,
+  $size: false,
+  $color: false,
+  $weight: false,
+  $lh: false,
+  $space: false
+) {
+  font-family: $font, 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  // font-family: 'Times New Roman', Times, serif;
+  @if $size {
+    font-size: $size;
+  }
+  @if $color {
+    color: $color;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+  @if $space {
+    letter-spacing: $space;
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==bigDesktop {
+    @media only screen and (max-width: $bigDesktop) {
+      @content;
+    }
+  }
+  @if $breakpoint==desktop {
+    @media only screen and (max-width: $desktop) {
+      @content;
+    }
+  }
+  @if $breakpoint==smallDesktop {
+    @media only screen and (max-width: $smallDesktop) {
+      @content;
+    }
+  }
+  @if $breakpoint==tablet {
+    @media only screen and (max-width: $tablet) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==mobile {
+    @media only screen and (max-width: $mobile) {
+      @content;
+    }
+  }
+}

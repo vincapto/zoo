@@ -1,0 +1,49 @@
+// @import '../../variables';
+
+.range {
+  background-color: #333b41;
+  height: 27px;
+  border-radius: 5px;
+  padding: 8px 35px;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 2px;
+      background-color: $colorBlackGray;
+    }
+  }
+
+  &__label {
+    span {
+      align-self: center;
+    }
+  }
+  &__label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  &__step-text {
+    @extend %btnMedium;
+    position: absolute;
+    top: calc(100% + 20px);
+    color: $colorBlackBlue;
+    &--active {
+      color: $colorOrangeTitle;
+    }
+    &::before {
+      content: '$';
+      position: absolute;
+      right: 100%;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+.card {
+  border: 1px solid $colorOrangeHover;
+  border-radius: $borderCard;
+  box-sizing: border-box;
+  margin: 0 auto;
+  overflow: hidden;
+  z-index: 5;
+  position: relative;
+  width: 100%;
+  max-height: 425px;
+  @include respond(smallDesktop) {
+    // max-height: 354px;
+  }
+  @include respond(tablet) {
+    max-height: 332px;
+  }
+  @include respond(mobile) {
+    height: 332px;
+  }
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    @include respond(smallDesktop) {
+      height: 294px;
+    }
+    @include respond(tablet) {
+      height: auto;
+    }
+  }
+  &__name {
+    @include font-source-sans('Roboto', 16px, $colorBlack, 700, 22px);
+    text-transform: uppercase;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px 13px 14px;
+    @include respond(smallDesktop) {
+      padding-bottom: 11px;
+    }
+    @include respond(tablet) {
+      // max-height: 332px;
+
+      padding: 2px 10px;
+    }
+  }
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__name {
+    @include respond(tablet) {
+      // max-height: 332px;
+      font-size: 12.4695px;
+      line-height: 120%;
+      text-transform: uppercase;
+    }
+  }
+  &__text {
+    @include font-source-sans('Roboto', 15px, $colorBlack, 300, 18px);
+    @include respond(tablet) {
+      // max-height: 332px;
+      line-height: 140%;
+      font-size: 11.6901px;
+    }
+  }
+  &__icon {
+    @include respond(mobile) {
+      // max-height: 332px;
+      position: relative;
+      transform: scale(0.75);
+      left: 11px;
+    }
+  }
+}

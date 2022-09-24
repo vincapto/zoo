@@ -1,0 +1,229 @@
+// @import '../../variables';
+
+.footer {
+  background: #000;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  @include respond(smallDesktop) {
+    .container {
+      padding: 0 45px;
+      padding-right: 20px;
+    }
+  }
+  @include respond(tablet) {
+    .container {
+      padding: 12px 20px;
+      padding-right: 10px;
+    }
+    padding: 0;
+  }
+  @include respond(mobile) {
+    .container {
+      padding: 20px 10px;
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    align-self: flex-start;
+    @include respond(mobile) {
+      flex-direction: row;
+      max-width: none;
+      border: none;
+      justify-self: center;
+      padding: 0;
+      .logo__text {
+        padding: 2px;
+      }
+      .logo__img {
+        /* width: 25px; */
+        height: 21px;
+        bottom: 6px;
+        left: -2px;
+      }
+      // max-height: fit-content;
+    }
+  }
+  &__form {
+    justify-self: flex-end;
+    max-width: 370px;
+    width: 100%;
+    position: relative;
+    @include respond(smallDesktop) {
+      right: 30px;
+    }
+    @include respond(tablet) {
+      display: none;
+    }
+    @include respond(mobile) {
+      display: none;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // gap: 10px;
+    }
+    grid-area: form;
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+  .input-footer {
+    max-width: 228px;
+    width: 100%;
+    margin-right: 10px;
+  }
+  &__title {
+    @include font-source-sans('Roboto', 24px, $colorBlack, 400, 28.8px);
+    padding-bottom: 13px;
+    color: $colorWhite;
+  }
+  &__btn {
+    grid-area: btn;
+    margin-top: 34px;
+    margin-bottom: 44px;
+    @include respond(tablet) {
+      margin-bottom: 34px;
+      margin-top: 0;
+      align-self: flex-start;
+      // margin-top: 55px;
+    }
+    @include respond(mobile) {
+      margin: 0;
+    }
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__author {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    grid-area: author;
+    // @include font-source-sans('Roboto', 16px, $colorWhite, 100, 130%);
+    align-self: flex-end;
+    justify-self: flex-end;
+    @include respond(tablet) {
+      // margin-top: 55px;
+    }
+    &-line {
+      @include respond(mobile) {
+        font-size: 15px;
+      }
+      // padding-bottom: 10px;
+    }
+  }
+  .menu__list--footer {
+    @include respond(smallDesktop) {
+      max-width: 332px;
+    }
+    align-self: flex-end;
+  }
+  &__menu {
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    grid-area: menu;
+
+    color: $colorWhite;
+    @include respond(smallDesktop) {
+    }
+    @include respond(mobile) {
+      .menu__list {
+        justify-content: space-around;
+        gap: 10px;
+      }
+    }
+  }
+  &__grid {
+    display: grid;
+    justify-content: space-between;
+    grid-template-areas:
+      'logo form form'
+      'btn btn .'
+      'social menu author';
+    grid-template-columns: 1fr minmax(auto, 362px) minmax(auto, 400px);
+    @include respond(smallDesktop) {
+      grid-template-columns: minmax(auto, 207px) minmax(auto, 332px) 228px;
+      // grid-template-areas:
+      //   'logo . form form form'
+      //   'btn btn . . .'
+      //   'social menu menu menu  author';
+      grid-template-areas:
+        'logo form form'
+        'btn . .'
+        'socialmenu author';
+    }
+    @include respond(tablet) {
+      grid-template-areas:
+        'logo social'
+        'btn social'
+        'menu author';
+      grid-template-columns: minmax(auto, 298px) minmax(auto, 228px);
+      grid-template-rows: 1fr 1fr 84px;
+    }
+    @include respond(mobile) {
+      grid-template-areas:
+        'logo'
+        'social'
+        'btn'
+        'author'
+        'menu';
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(auto, 25px);
+      padding: 0;
+      gap: 30px;
+    }
+  }
+}
+
+.social {
+  &__list {
+    @extend %bodyRegular;
+    grid-area: social;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include respond(tablet) {
+      gap: 20px;
+    }
+    @include respond(mobile) {
+      gap: 0;
+      max-width: 195px;
+      margin: 0 auto;
+      width: 100%;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+  &__item {
+    color: $colorWhite;
+    display: flex;
+    @include respond(tablet) {
+      align-self: flex-end;
+    }
+
+    &-img {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $colorGray5;
+    }
+    &-text {
+      align-self: center;
+      margin-left: 12px;
+      margin-top: 3px;
+      @include respond(tablet) {
+        display: none;
+        width: 0;
+      }
+    }
+  }
+}

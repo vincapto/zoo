@@ -1,0 +1,189 @@
+// @import '../variables';
+.testimonial {
+  @include respond(mobile) {
+    padding-bottom: 60px;
+  }
+  &__content {
+    padding-top: 140px;
+    padding-bottom: 180px;
+    @include respond(smallDesktop) {
+      padding-bottom: 143px;
+      padding-top: 100px;
+    }
+    @include respond(tablet) {
+      // max-height: 332px;
+      padding-top: 63px;
+      padding-bottom: 80px;
+    }
+    @include respond(mobile) {
+      // max-height: 332px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  &__title {
+    // @extend %h3Regular;
+    text-align: center;
+    @include respond(mobile) {
+      margin-top: 31px;
+      margin-bottom: 20px;
+    }
+  }
+  &__list {
+    padding-top: 48px;
+    display: grid;
+    justify-items: center;
+    gap: 34px;
+    margin-bottom: 26px;
+    grid-template-columns: repeat(4, minmax(auto, 268px));
+    @include respond(smallDesktop) {
+      gap: 5px;
+      padding-top: 31px;
+      margin-bottom: 23px;
+      justify-content: space-between;
+      grid-template-columns: repeat(3, minmax(180px, 293px));
+    }
+    @include respond(tablet) {
+      grid-template-columns: 1fr;
+      padding-top: 30px;
+      margin-bottom: 42px;
+      gap: 15px;
+    }
+    @include respond(mobile) {
+      padding: 0;
+      margin-bottom: 30px;
+    }
+  }
+  &__slider-scroll-active {
+    position: relative;
+    z-index: 2;
+    // margin: 0.4px 0.8px;
+    width: 115px;
+    border-radius: 6px;
+    height: 6px;
+    align-self: center;
+    background: $colorOrange;
+  }
+  &__slider-scroll-background {
+    position: absolute;
+    background: $colorGrayLight;
+    width: 100%;
+    height: 10px;
+    top: 0;
+  }
+  &__btn {
+    margin-top: 30px;
+    @include respond(smallDesktop) {
+      margin-top: 50px;
+    }
+    @include respond(tablet) {
+      max-width: 240px;
+      margin: 0 auto;
+    }
+  }
+  &__slider-scroll {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 52%;
+    margin: 0 auto;
+    height: 8px;
+    border-width: 0.5px;
+    background-image: $linearPinkGrad;
+    border-radius: 5px;
+  }
+  .border-gradient {
+    background-image: $linearPinkGrad;
+    border-style: solid;
+    border-color: transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+  &__card {
+    display: flex;
+    // background-color: $colorGrayLight;
+    flex-direction: column;
+    // border: 2px solid $colorRed;
+    // background-image: $linearPinkGrad;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    overflow: hidden;
+    // padding: 15px;
+
+    &-background {
+      // position: absolute;
+      padding: 15px;
+      border-radius: 0;
+      // z-index: 2;
+      background-color: $colorGrayLight;
+      // padding-bottom: 100%;
+      @include respond(tablet) {
+        padding: 11px;
+      }
+    }
+    &--active {
+      filter: $cardShadow;
+    }
+    &-head {
+      display: flex;
+      margin-bottom: 11px;
+      margin-top: -2px;
+    }
+    &-desc {
+      padding-left: 10px;
+    }
+    &-img {
+      max-width: 37px;
+      max-height: 37px;
+    }
+    &-title {
+      @include font-source-sans('Roboto', 16px, $colorBlack, 400, 19px);
+      text-align: left;
+    }
+    &-subtitle {
+      @include font-source-sans('Roboto', 15px, $colorGray4, 300, 18px);
+      display: flex;
+      @include respond(smallDesktop) {
+        flex-wrap: wrap;
+      }
+    }
+    &-subtitle :first-child {
+      &::after {
+        content: '•';
+        padding: 0 8px;
+      }
+    }
+    &-text {
+      @include font-source-sans('Roboto', 15px, $colorBlackGray, 300, 18px);
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -moz-box;
+      display: -webkit-box;
+      -webkit-line-clamp: 14;
+      -webkit-box-orient: vertical;
+      min-height: 309px;
+      @include respond(tablet) {
+        min-height: auto;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -moz-box;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+  .card--hide {
+    @include respond(smallDesktop) {
+      display: none;
+    }
+  }
+  .gradient--hide {
+    @include respond(tablet) {
+      display: none;
+    }
+  }
+}

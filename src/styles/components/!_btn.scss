@@ -1,0 +1,95 @@
+@import '../mixin';
+// @import '../btn/btn';
+.btn {
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: $btnBorderRadius;
+  max-width: 292px;
+  width: 100%;
+  padding: 15px;
+  @include font-source-sans('Roboto', 16px, $colorWhite, 500, 22px);
+  background: $colorOrange;
+
+  &--active {
+    background-color: $colorGreen;
+  }
+  &--disabled {
+    background-color: $colorGray;
+  }
+  &::hover {
+    background: $colorOrangeHover;
+  }
+
+  &-submit {
+    background: $colorGray;
+    color: $colorBlack;
+    &--active {
+      border-color: $colorGreen;
+      color: $colorGreen;
+    }
+    &--disabled {
+      border-color: $colorRed;
+      color: $colorRed;
+    }
+  }
+
+  &-arrow {
+    max-width: 62px;
+    max-height: 62px;
+    height: 100%;
+    width: 100%;
+    background: $colorOrange;
+    padding: 15px;
+    border-radius: 100%;
+    &--active {
+      background: $colorOrange;
+    }
+  }
+  &-plus {
+    padding: 11px;
+    &--active {
+      border: 1px solid $colorGreen;
+    }
+  }
+  &--square {
+    border-radius: 5px;
+    max-width: 298px;
+    width: 100%;
+  }
+  &-submit {
+    @include font-source-sans('Roboto', 16px, $colorBlack, 400, 22.4px);
+    display: inline-block;
+    border: 1px solid $colorBlackBlue;
+    background: $colorGrayLight;
+    padding: 10px 40px;
+    border-radius: 5px;
+    &--active {
+      color: $colorGreen;
+    }
+    &--disabled {
+      border-color: $colorRed;
+      color: $colorRed;
+    }
+  }
+}
+
+.input {
+  @include font-source-sans('Roboto', 16px, $colorBlack, 400, 22.4px);
+  text-transform: capitalize;
+  border-radius: 2px;
+  padding: 10px;
+  border-width: 2px;
+  border-color: $colorOrange;
+
+  &--active {
+    color: $colorGreen;
+  }
+  &--dark {
+    background-color: $colorBlack;
+    color: $colorGray4;
+  }
+  &--disabled {
+    color: $colorRed;
+    border-radius: $borderInput;
+  }
+}

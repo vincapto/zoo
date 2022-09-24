@@ -1,0 +1,82 @@
+// @import '../../variables';
+
+.logo {
+  position: relative;
+  padding: 4px;
+  border: 1px solid $colorWhite;
+  display: flex;
+  flex-direction: column;
+  max-width: 82px;
+  max-height: 52px;
+  border-radius: 2px;
+  &-header {
+    margin: 0px 6px 1px -1px;
+    @include respond(smallDesktop) {
+      margin: 0px 1px 1px 1px;
+    }
+    @include respond(tablet) {
+      padding: 0;
+      border: none;
+      margin: 0px 5px -4px -1px;
+    }
+    @include respond(mobile) {
+      margin: 0px 0px -4px 0px;
+    }
+  }
+  &-bottom {
+    justify-content: center;
+    align-self: center;
+    position: relative;
+  }
+  &__text {
+    text-align: center;
+    @extend %logoMedium;
+    &-header {
+      @include respond(tablet) {
+        font-size: 12.29px;
+        line-height: 120%;
+        text-align: center;
+      }
+      @include respond(mobile) {
+        font-size: 12.29px;
+        line-height: 120%;
+        text-align: center;
+      }
+    }
+  }
+  &__img {
+    position: absolute;
+    width: 9px;
+    height: 15px;
+    bottom: 2px;
+    left: -5px;
+    height: 34px;
+
+    @include respond(smallDesktop) {
+      width: 9px;
+      height: 15px;
+      bottom: 2px;
+      left: -5px;
+      height: 34px;
+    }
+    @include respond(tablet) {
+      width: 15px;
+      height: 15px;
+      bottom: 3px;
+      left: -7pxpx;
+    }
+  }
+
+  &--filter {
+    display: none;
+    max-width: 54px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    filter: $filterSvg;
+    border: 1px solid $colorOrange;
+    @include respond(tablet) {
+      display: block;
+    }
+  }
+}
