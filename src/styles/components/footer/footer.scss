@@ -1,9 +1,10 @@
 // @import '../../variables';
 
 .footer {
-  background: #000;
+  background: rgba(17, 17, 21, 1);
   padding-top: 40px;
   padding-bottom: 50px;
+  transition: $transitionSimple;
   @include respond(smallDesktop) {
     .container {
       padding: 0 45px;
@@ -111,10 +112,14 @@
       // margin-top: 55px;
     }
     &-line {
+      transition: $transitionSimple;
       @include respond(mobile) {
         font-size: 15px;
       }
       // padding-bottom: 10px;
+    }
+    &:hover .footer__author-line {
+      color: $colorGreen;
     }
   }
   .menu__list--footer {
@@ -202,11 +207,24 @@
   }
   &__item {
     color: $colorWhite;
+    // background: red;
     display: flex;
+    align-self: baseline;
+
     @include respond(tablet) {
       align-self: flex-end;
     }
 
+    &:hover {
+      .social__item-text {
+        color: $colorGreen;
+      }
+      .social__item-img {
+        background: $colorGreen;
+      }
+      // background: $colorGreen;
+      cursor: pointer;
+    }
     &-img {
       width: 26px;
       height: 26px;
@@ -215,14 +233,23 @@
       align-items: center;
       justify-content: center;
       background-color: $colorGray5;
+      transition: $transitionSimple;
+      &:hover {
+        background: $colorGreen;
+      }
     }
     &-text {
+      max-width: 100%;
       align-self: center;
       margin-left: 12px;
       margin-top: 3px;
+      transition: $transitionSimple;
       @include respond(tablet) {
         display: none;
         width: 0;
+      }
+      &:hover {
+        color: $colorGreen;
       }
     }
   }

@@ -60,7 +60,10 @@
       transform: translateY(-50%) translateX(-50%);
     }
   }
-
+  &__label {
+    display: flex;
+    align-items: center;
+  }
   &-input:checked + .radio__mark {
     background-color: $colorGreen;
     border: 1px solid $colorGreen;

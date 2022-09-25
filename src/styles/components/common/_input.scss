@@ -7,7 +7,16 @@
   border-radius: 2px;
   padding: 10px;
   border-width: 2px;
-  border-color: $colorOrange;
+  border-color: rgba(249, 128, 75, 1);
+  // border-image: $colorOrange;
+  outline: none;
+  border-style: solid;
+  // color: pink;
+  color: pink;
+  // border: 10px solid pink;
+  border-image: repeating-linear-gradient(45deg, #f9804b 1.49%, #fe9013 101.44%)
+    1;
+  border-image-width: 1px;
 
   &--active {
     color: $colorGreen;
@@ -38,4 +47,30 @@
       height: 20px;
     }
   }
+}
+// subscribe--input:invalid ~ .subscribe--button {
+// input[type='.btn-submit']:invalid {
+//   color: $colorRed;
+// }
+input[type='email']:invalid ~ input[type='submit'] {
+  border-image: repeating-linear-gradient(
+      45deg,
+      $colorRed 1%,
+      $colorRed 101.44%
+    )
+    1;
+  // border-width: 10px;
+  color: $colorRed;
+}
+input[type='email']:focus {
+  // background-color: yellow;
+  color: $colorGreen;
+  border-image: repeating-linear-gradient(
+      45deg,
+      $colorGreen 1%,
+      $colorGreen 101.44%
+    )
+    1;
+  // border: 1px solid red;
+  // box-shadow: 0 0 10px #719ece;
 }

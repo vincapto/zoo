@@ -7,7 +7,9 @@
   z-index: 5;
   position: relative;
   width: 100%;
-  max-height: 425px;
+  background: $colorWhite;
+  // max-height: 425px;
+  transition: all 0.2s ease-in;
   @include respond(smallDesktop) {
     // max-height: 354px;
   }
@@ -17,15 +19,65 @@
   @include respond(mobile) {
     height: 332px;
   }
+  &__show {
+    position: absolute;
+    z-index: 10;
+    top: 150%;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+    p {
+      color: white;
+    }
+  }
+  &:hover .card__show {
+    top: 50%;
+    opacity: 1;
+  }
+  &:hover .card__img img {
+    // max-width: none;
+    // max-height: none;
+    // width: 100px;
+    // width: calc(100% + 20px);
+    // height: calc(100% + 20px);
+    filter: brightness(60%);
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    // max-height: 100%;
+  }
   &__img {
     width: 100%;
     object-fit: cover;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease-in;
     @include respond(smallDesktop) {
-      height: 294px;
+      max-height: 294px;
     }
     @include respond(tablet) {
       height: auto;
     }
+    & img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      object-fit: cover;
+      overflow: hidden;
+      transition: all 0.2s ease-in;
+      &:hover {
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        // transform: scale(2);
+      }
+    }
+  }
+  &__buf-img {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
   }
   &__name {
     @include font-source-sans('Roboto', 16px, $colorBlack, 700, 22px);

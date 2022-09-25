@@ -51,7 +51,28 @@
       width: 20%;
     }
     &--left {
-      left: 0;
+      z-index: 0;
+      position: absolute;
+      left: -10vw;
+      bottom: 0;
+      width: 28vw;
+      height: 29vw;
+      @include respond(smallDesktop) {
+        left: 0;
+        width: 20vw;
+        height: 20vw;
+      }
+      @include respond(tablet) {
+        left: -10vw;
+        width: 31vw;
+        height: 32vw;
+      }
+      @include respond(mobile) {
+        left: -7px;
+        width: 19vw;
+        height: 23vw;
+      }
+      // left: 0;
     }
     &--right {
       right: 0;

@@ -11,17 +11,38 @@
   border-radius: $btnBorderRadius;
   padding: 15px;
   background: $colorOrange;
-
+  transition: background 0.2s ease;
+  overflow: hidden;
+  position: relative;
   &--active {
     background-color: $colorGreen;
   }
   &--disabled {
     background-color: $colorGray;
   }
-  &::hover {
+  &::before {
+    left: 0;
+    height: 100%;
+    content: '';
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    overflow: hidden;
     background: $colorOrangeHover;
+    top: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
   }
+  &:hover::before {
+    // background-color: $colorOrangeHover;
+    opacity: 1;
+  }
+  &:active::before {
+    opacity: 1;
 
+    background: $colorGreen;
+  }
   &-arrow {
     max-width: 62px;
     max-height: 62px;
@@ -33,6 +54,11 @@
     &--active {
       background: $colorOrange;
     }
+  }
+
+  a {
+    position: relative;
+    z-index: 5;
   }
 
   &-plus {
@@ -59,6 +85,7 @@
     background: $colorGrayLight;
     padding: 10px 38px;
     border-radius: 5px;
+    cursor: pointer;
     &--active {
       border-color: $colorGreen;
       color: $colorGreen;
@@ -66,6 +93,9 @@
     &--disabled {
       border-color: $colorRed;
       color: $colorRed;
+    }
+    &:active {
+      color: $colorGreen;
     }
   }
 }

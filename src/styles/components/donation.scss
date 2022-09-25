@@ -132,7 +132,10 @@
 
   &__text {
     line-height: 20px;
-
+    a {
+      color: #333b41;
+      border-bottom: 1px solid #fe9013;
+    }
     margin-bottom: 10px;
     text-align: left;
     @include respond(smallDesktop) {
@@ -183,6 +186,7 @@
     }
   }
   &__img {
+    max-width: 100%;
     // width: 100%;
     &-wrap {
       display: flex;

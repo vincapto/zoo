@@ -18,6 +18,12 @@ $filterSvg: invert(39%) sepia(43%) saturate(6592%) hue-rotate(351deg)
   brightness(153%) contrast(99%);
 
 $colorOrange: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+$colorOrangeBtn: linear-gradient(
+  113.96deg,
+  #f9804b 1.49%,
+  #fe9013 101.44%,
+  rgba(228, 114, 9, 1) 100%
+);
 $colorOrangeHover: #e47209;
 $colorOrangeTitle: #fe9013;
 $colorOrangeGrad: linear-gradient(
