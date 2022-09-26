@@ -25,7 +25,7 @@
     }
   }
   &__subtitle {
-    margin-bottom: 32px;
+    margin-bottom: 31px;
     margin-top: 56px;
     @include respond(smallDesktop) {
       margin-bottom: 33px;
@@ -48,7 +48,7 @@
     margin-bottom: 177px;
     display: grid;
     gap: 87px;
-    grid-template-columns: minmax(auto, 608px) minmax(auto, 456px);
+    grid-template-columns: minmax(auto, 609px) minmax(auto, 456px);
     // grid-template-columns: minmax(auto, 610px) minmax(auto, 456px);
     @include respond(smallDesktop) {
       gap: 29px;

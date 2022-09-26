@@ -139,11 +139,21 @@
       position: absolute;
       content: '';
       border-radius: 50%;
-      width: 463px;
+      width: 464px;
       bottom: 8px;
       padding-bottom: 465px;
       background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
-      left: -14%;
+      left: -14.5%;
+      // }
+      //       z-index: -1;
+      //       position: absolute;
+      //       content: '';
+      //       border-radius: 50%;
+      //       width: 463px;
+      //       bottom: 8px;
+      //       padding-bottom: 465px;
+      //       background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+      //       left: -14%;
 
       @include respond(smallDesktop) {
         left: -17%;

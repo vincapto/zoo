@@ -103,7 +103,7 @@ $transitionMenu: width 500ms ease-in-out;
   @include font-source-sans('Roboto', 24px, $colorBlack, 400, 120%);
 }
 %btnMedium {
-  @include font-source-sans('Roboto', 16px, $colorWhite, 500, 140%);
+  @include font-source-sans('Roboto', 16px, $colorWhite, 500, 22.4px);
 }
 %bodyRegular {
   @include font-source-sans('Roboto', 16px, $colorBlack, 400, 140%);

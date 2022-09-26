@@ -80,14 +80,15 @@
     padding-bottom: 100%;
   }
   &__name {
-    @include font-source-sans('Roboto', 16px, $colorBlack, 700, 22px);
+    @include font-source-sans('Roboto', 16px, $colorBlack, 500, 22.4px);
     text-transform: uppercase;
   }
   &__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4px 8px 13px 14px;
+    // padding: 4px 8px 13px 14px;
+    padding: 8px 8px 11px 14px;
     @include respond(smallDesktop) {
       padding-bottom: 11px;
     }

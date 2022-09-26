@@ -9,7 +9,7 @@
   height: 80px;
   grid-template-columns: auto 1fr;
   align-items: center;
-  @include font-source-sans('Roboto Mono', 18px, $colorWhite, false, 23.74px);
+  @include font-source-sans('Roboto', 18px, $colorWhite, false, 23.74px);
   @include respond(tablet) {
     height: 34px;
   }
@@ -22,7 +22,7 @@
     // text-transform: capitalize;
     &--head {
       justify-content: flex-start;
-      gap: 58px;
+      gap: 57px;
       @include respond(smallDesktop) {
         gap: 50px;
       }
@@ -42,7 +42,7 @@
       transition: $transitionSimple;
       // text-decoration: dotted;
       @extend %btnMedium;
-      font-weight: 400;
+      // font-weight: 400;
     }
     & a:hover {
       color: $colorOrangeHover;

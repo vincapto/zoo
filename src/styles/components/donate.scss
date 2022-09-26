@@ -1,7 +1,30 @@
+.hero-donate {
+  background: #fff url('/src/images/panda-hd.jpg');
+  background-position-x: center;
+  background-position-y: 44%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: local;
+  background-origin: padding-box;
+  background-clip: padding-box;
+  background-color: rgb(255, 255, 255);
+  // padding-bottom: 103px;
+  height: 466px;
+}
+.donate-header {
+  position: absolute;
+  width: 100%;
+  // position: relative;
+  background: $colorBlack;
+  z-index: 3;
+}
 .donate {
   background: $colorOrangeGrad;
   padding-top: 40px;
   padding-bottom: 180px;
+  &__btn {
+    left: 3px;
+  }
   &__text-amount {
     @include font-source-sans('Roboto', 16px, $colorBlackBlue, 400, 22px);
     margin-bottom: 20px;
@@ -15,6 +38,7 @@
       // gap: 50px;
     }
   }
+
   &__desc-subtitle {
     @include font-source-sans('Roboto', 16px, $colorWhite, 500, 22px);
   }
@@ -38,7 +62,7 @@
     left: -6px;
     position: relative;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 23px;
     text-align: center;
   }
   &__form-subtitle {
@@ -75,7 +99,7 @@
       align-items: center;
       max-width: 532px;
       margin-top: 106px;
-      margin-bottom: 43px;
+      margin-bottom: 41px;
       justify-content: space-between;
     }
   }
@@ -112,6 +136,7 @@
     .input {
       &-amount {
         max-width: 268px;
+        height: 54px;
         width: 100%;
         background-color: transparent;
         border: 1px solid $colorGrayBorder;

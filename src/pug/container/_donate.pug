@@ -1,0 +1,124 @@
+include ../component/_range
+header.donate-header
+  .container.top-bar
+    a(href='')
+      h1.logo.logo-header
+        .logo-top.logo__text-header PetStory
+        .logo-bottom 
+          .logo__text-header online
+          img(src=`../images/logo.svg`).logo__img
+    .menu.menu-head 
+      .menu__list.menu__list--head
+        .logo.logo--filter
+          .logo-top.logo__text PetStory
+          .logo-bottom 
+            .logo__text online
+            img(src=`../images/logo.svg`).logo__img
+        li.menu__item
+          a(src='#') About
+        li.menu__item
+          a(src='#') Map
+        li.menu__item
+          a(src='/zoos.html') Zoos
+        li.menu__item.menu__item--active
+          a(src='/zoos.html') Donate
+        li.menu__item
+          a(src='#') Contact us
+        li.menu__item.menu__item--end
+          a(src='https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online') Designed by ©
+        //- li.menu__item.menu__item-hide
+      //- li.menu__item.menu__item--end
+      //-   a(src='#') Designed by ©
+    .hamburger
+      .hamburger__button
+.section.hero-donate
+  //- .container
+    .hero__wrapper
+      
+.section.donate
+  .container.donate__content 
+    .donate__desc-title THE ZOO HAS OFFICIALLY REOPENED BUT WE STILL NEED YOUR HELP!
+    .donate__desc-subtitle Even though the Zoo has been able to reopen, we are at a greatly reduced capacity with educational programs and public and private events cancelled or postponed for additional months. We need you now more than ever to help ensure that we overcome these challenges. We have been actively raising funds in the community, and we are grateful for the generosity.  But much more support is still needed, and we need your help! Please consider a gift today – no matter what size – to help us sustain our mission.
+    .donate__title Donation Information
+    .donate__form
+      .donate__widget
+        .donate__form-title Pick and feed a friend
+        .donate__form-subtitle We know the animals bring you joy, and in these extraordinary times, we’re glad.
+        .donate__panda-wrapper        
+          .donate__count 
+            .donate__count-number 
+              p 4
+              .donate__count-desc Panda diet for the day.                        
+            .donate__x 
+              img(src="/images/x_icon.svg", alt="")
+          .donate__panda
+            img(src="/images/panda_icon.svg", alt="")
+        .donate__text-amount Amount
+        +range()
+        //- input(type="range").donate__range
+        .donate__pay
+          .donate__pay-input
+            input(type="number" min="0" max="9999"  placeholder='Another amount').input.input-amount            
+            img(src="/images/dollar.svg", alt="").donate__pay-dollar 
+          .donate__type
+            .donate__radio-wrapper
+              .radio-item
+                input(type="radio" id="radioMonthly" name="radio")
+                label(for="radioMonthly").radio__label
+                  span                 
+                  p.radio__text Monthly
+              .radio-item
+                input(type="radio" id="radioOnce" name="radio" checked)
+                label(for="radioOnce").radio__label
+                  span                 
+                  p.radio__text Once
+          .btn.donation__btn.donate__btn 
+            a(src='#') Feed a friend now
+        p.donate__text Share with your friends on social networks 
+footer.footer
+  .container.footer__grid
+    a(href='').logo.logo-header.footer__logo.logo
+      .logo-top.logo__text PetStory
+      .logo-bottom 
+        .logo__text online
+        img(src=`../images/logo.svg`).logo__img
+    //- .footer__form-wrapper
+    .footer__form
+      .footer__title Subscribe to our news
+      .footer__form-item
+        input(type="email" placeholder="Enter your email").input.input--dark.input-footer
+        input(type='submit' pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+    required value='Submit').btn-submit.footer__submit
+          //- a(src='#') 
+    .btn.btn--square.footer__btn
+      a(src='#') donate for volunteers
+    .social__list 
+      a(href='https://facebook.com/').social__item 
+        .social__item-img
+          img(src="/images/facebook_icon.png", alt="")
+        p.social__item-text Facebook
+      a(href='https://twitter.com/').social__item 
+        .social__item-img
+          img(src="/images/twitter.png", alt="")
+        p.social__item-text Twitter
+      a(href='https://instagram.com/').social__item
+        .social__item-img
+          img(src="/images/instagram.png", alt="")
+        p.social__item-text Instagram
+      a(href='https://youtube.com/').social__item 
+        .social__item-img
+          img(src="/images/youtube.png", alt="")
+        p.social__item-text YouTube
+    .menu.footer__menu
+      .menu__list.menu__list--footer
+        li.menu__item.menu__item--active
+          a(src='#') About
+        li.menu__item
+          a(src='#') Map
+        li.menu__item
+          a(src='#') Zoos
+        li.menu__item
+          a(src='#') Contact us
+    a(href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online").footer__author
+      p.common__textThin.footer__author-line Designed by Alisa Samborskaya 
+      p.common__textThin.footer__author-line ©RSSchool & ©Yem Digital 2021

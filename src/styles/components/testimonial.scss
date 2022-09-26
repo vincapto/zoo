@@ -1,29 +1,65 @@
 // @import '../variables';
 .testimonial {
+  position: relative;
+  overflow: hidden;
+  max-height: 919px;
   @include respond(mobile) {
     padding-bottom: 60px;
   }
-  &__content {
-    padding-top: 140px;
-    padding-bottom: 180px;
+  &__flower {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     @include respond(smallDesktop) {
-      padding-bottom: 143px;
-      padding-top: 100px;
+      bottom: -85px;
+      width: 195px;
+    }
+    @include respond(tablet) {
+      right: -9px;
+      bottom: -77px;
+      width: 130px;
+    }
+    @include respond(mobile) {
+      display: none;
+    }
+    &-mobile {
+      display: none;
+      @include respond(mobile) {
+        position: absolute;
+        width: auto;
+        height: 99.81px;
+        bottom: -36px;
+        right: -6px;
+      }
+    }
+  }
+  &__content {
+    margin-top: 140px;
+    margin-bottom: 180px;
+    @include respond(smallDesktop) {
+      margin-bottom: 143px;
+      margin-top: 100px;
     }
     @include respond(tablet) {
       // max-height: 332px;
-      padding-top: 63px;
-      padding-bottom: 80px;
+      margin-top: 63px;
+      margin-bottom: 80px;
     }
     @include respond(mobile) {
       // max-height: 332px;
-      padding-top: 0;
-      padding-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
   &__title {
     // @extend %h3Regular;
     text-align: center;
+    line-height: 46.8px;
+    display: flex;
+    position: relative;
+    top: 2px;
+    justify-content: center;
+
     @include respond(mobile) {
       margin-top: 31px;
       margin-bottom: 20px;
@@ -33,8 +69,8 @@
     padding-top: 48px;
     display: grid;
     justify-items: center;
-    gap: 34px;
-    margin-bottom: 26px;
+    gap: 30px;
+    margin-bottom: 21px;
     grid-template-columns: repeat(4, minmax(auto, 268px));
     @include respond(smallDesktop) {
       gap: 5px;
@@ -73,6 +109,7 @@
   }
   &__btn {
     margin-top: 30px;
+    height: 54px;
     @include respond(smallDesktop) {
       margin-top: 50px;
     }
@@ -91,6 +128,12 @@
     border-width: 0.5px;
     background-image: $linearPinkGrad;
     border-radius: 5px;
+    &-active {
+      transition: all 0.2s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
   .border-gradient {
     background-image: $linearPinkGrad;
@@ -100,6 +143,11 @@
     background-clip: padding-box, border-box;
   }
   &__card {
+    transition: filter 0.2s ease;
+    &:hover {
+      filter: $cardShadow;
+    }
+    cursor: pointer;
     display: flex;
     // background-color: $colorGrayLight;
     flex-direction: column;
@@ -113,11 +161,14 @@
 
     &-background {
       // position: absolute;
-      padding: 15px;
+
+      padding: 15px 15px 19px 15px;
+
       border-radius: 0;
       // z-index: 2;
       background-color: $colorGrayLight;
       // padding-bottom: 100%;
+      height: 100%;
       @include respond(tablet) {
         padding: 11px;
       }
@@ -125,10 +176,13 @@
     &--active {
       filter: $cardShadow;
     }
+
     &-head {
       display: flex;
-      margin-bottom: 11px;
+      margin-bottom: 10px;
       margin-top: -2px;
+      // margin-bottom: 11px;
+      // margin-top: -2px;
     }
     &-desc {
       padding-left: 10px;
@@ -151,7 +205,7 @@
     &-subtitle :first-child {
       &::after {
         content: '•';
-        padding: 0 8px;
+        padding: 0 6px;
       }
     }
     &-text {
@@ -164,15 +218,19 @@
       -webkit-line-clamp: 14;
       -webkit-box-orient: vertical;
       min-height: 309px;
+      max-width: 237px;
+      width: 100%;
       @include respond(tablet) {
         min-height: auto;
-        text-align: center;
+        // text-align: center;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -moz-box;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+
+        max-width: 100%;
       }
     }
   }

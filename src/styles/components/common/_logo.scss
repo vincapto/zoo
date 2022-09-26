@@ -2,13 +2,23 @@
 
 .logo {
   position: relative;
-  padding: 4px;
+  // padding: 4px;
+  padding: 3.55px 4.75px;
   border: 1px solid $colorWhite;
   display: flex;
   flex-direction: column;
   max-width: 82px;
   max-height: 52px;
   border-radius: 2px;
+  color: $colorWhite;
+  line-height: 22.82px;
+  align-items: center;
+  @include font-source-sans('Roboto', 19.0145px, $colorWhite, 400, 23.74px);
+  font-style: normal;
+  // font-weight: 400;
+  // font-size: 19.0145px;
+  // line-height: 23px;
+
   &-header {
     margin: 0px 6px 1px -1px;
     @include respond(smallDesktop) {
@@ -30,8 +40,18 @@
   }
   &__text {
     text-align: center;
-    @extend %logoMedium;
+    // @extend %logoMedium;
+    // line-height: 22px;
     &-header {
+      // font-family: 'Times New Roman', Times, serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 19.0145px;
+      line-height: 23px;
+      // /* or 23px */
+      // font-size: 19.0145px;
+      // line-height: 23px;
+      // font-weight: 400;
       @include respond(tablet) {
         font-size: 12.29px;
         line-height: 120%;

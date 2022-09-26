@@ -14,8 +14,7 @@
   // color: pink;
   color: pink;
   // border: 10px solid pink;
-  border-image: repeating-linear-gradient(45deg, #f9804b 1.49%, #fe9013 101.44%)
-    1;
+  border-image: repeating-linear-gradient(45deg, #f9804b 1.49%, #fe9013 101.44%) -1;
   border-image-width: 1px;
 
   &--active {
@@ -52,6 +51,16 @@
 // input[type='.btn-submit']:invalid {
 //   color: $colorRed;
 // }
+input[type='email']:invalid {
+  border-image: repeating-linear-gradient(
+      45deg,
+      $colorRed 1%,
+      $colorRed 101.44%
+    )
+    1;
+  // border-width: 10px;
+  color: $colorRed;
+}
 input[type='email']:invalid ~ input[type='submit'] {
   border-image: repeating-linear-gradient(
       45deg,
