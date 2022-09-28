@@ -134,9 +134,9 @@
     column-gap: 30px;
     row-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(299px, 1fr));
-    grid-template-areas:
-      'panda eagle gorilla'
-      'sloth cheetah penguin';
+    // grid-template-areas:
+    //   'panda eagle gorilla'
+    //   'sloth cheetah penguin';
 
     @include respond(bigDesktop) {
       row-gap: 92px;
@@ -213,32 +213,26 @@
   }
 }
 
-.card-order {
-  grid-template-areas:
-    'panda eagle gorilla'
-    'sloth cheetah penguin';
-}
-
-.card-eagle {
-  grid-area: eagle;
-}
-.card-gorilla {
-  grid-area: gorilla;
-}
-.card-penguin {
-  grid-area: penguin;
-}
-.card-cheetah {
-  grid-area: cheetah;
-}
-.card-sloth {
-  grid-area: sloth;
-}
-.card-panda {
-  grid-area: panda;
-}
+// .card-eagle {
+//   grid-area: eagle;
+// }
+// .card-gorilla {
+//   grid-area: gorilla;
+// }
+// .card-penguin {
+//   grid-area: penguin;
+// }
+// .card-cheetah {
+//   grid-area: cheetah;
+// }
+// .card-sloth {
+//   grid-area: sloth;
+// }
+// .card-panda {
+//   grid-area: panda;
+// }
 .card-alligator {
-  grid-area: alligator;
+  // grid-area: alligator;
   display: none;
   .card__text-long {
     display: none;
