@@ -93,9 +93,10 @@
       top: 0;
       left: 0;
       max-width: 100%;
-      position: absolute;
+      position: fixed;
       overflow: hidden;
       transition: $transitionMenu;
+      z-index: 10;
     }
     .menu__list--active {
       width: 100%;

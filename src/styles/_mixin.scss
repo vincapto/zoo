@@ -26,6 +26,11 @@
 }
 
 @mixin respond($breakpoint) {
+  @if $breakpoint==fullSize {
+    @media only screen and (min-width: $fullSize) {
+      @content;
+    }
+  }
   @if $breakpoint==bigDesktop {
     @media only screen and (max-width: $bigDesktop) {
       @content;

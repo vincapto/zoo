@@ -1,7 +1,7 @@
 include ../component/_range
 header.header 
   .container.top-bar
-    a(href='')
+    a(href='./index.html')
       h1.logo.logo-header
         .logo-top.logo__text-header PetStory
         .logo-bottom 
@@ -15,20 +15,20 @@ header.header
             .logo__text online
             img(src=`../images/logo.svg`).logo__img
         li.menu__item.menu__item--active
-          a(src='#') About
+          a(href='#') About
         li.menu__item
-          a(src='#') Map
+          a(href='#') Map
         li.menu__item
-          a(src='/zoos.html') Zoos
+          a(href='#') Zoos
         li.menu__item
-          a(src='/zoos.html') Donate
+          a(href='./donate.html') Donate
         li.menu__item
-          a(src='#') Contact us
+          a(href='#') Contact us
         li.menu__item.menu__item--end
-          a(src='https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online') Designed by ©
+          a(href='https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online') Designed by ©
         //- li.menu__item.menu__item-hide
       //- li.menu__item.menu__item--end
-      //-   a(src='#') Designed by ©
+      //-   a(href='#') Designed by ©
     .hamburger
       .hamburger__button
 .section.hero
@@ -39,7 +39,7 @@ header.header
         //- .hero__round-wrapper
         h2.hero__title Watch your #[strong favorite] animal online
       .btn.hero__btn
-        a(src='#') watch online
+        a(href='#') watch online
 //- section.donate
   .container.donate__content 
     .donate__desc-title THE ZOO HAS OFFICIALLY REOPENED BUT WE STILL NEED YOUR HELP!
@@ -78,7 +78,7 @@ header.header
                   span                 
                   p.radio__text Once
           .btn.donation__btn 
-            a(src='#') Feed a friend now
+            a(href='#') Feed a friend now
         p.donate__text Share with your friends on social networks 
 .section.about 
   img(src=`../images/flower.png`).about__flower
@@ -106,7 +106,7 @@ header.header
       //- .btn.btn-arrow.animals__left
       //-   img(src=`../images/arrow.svg`).btn.btn-arrow.animals__right
       .animals__list 
-        .animals__item.card
+        .animals__item.card.card-panda
           .card__img
             img(src=`../images/panda-card.png`)
             .card__buf-img
@@ -118,7 +118,7 @@ header.header
               .card__name giant Pandas
               .card__text Native to Southwest China
             img(src=`../images/grass-eating.png`).card__icon
-        .animals__item.card
+        .animals__item.card.card-eagle
           .card__img
             img(src=`../images/eagle-card.png`)
             .card__buf-img
@@ -130,7 +130,7 @@ header.header
               .card__name Eagles
               .card__text Native to South America
             img(src=`../images/food.png`).card__icon
-        .animals__item.card
+        .animals__item.card.card-gorilla
           .card__img
             img(src=`../images/gorilla-card.png`)
             .card__buf-img
@@ -142,7 +142,7 @@ header.header
               .card__name Gorillas
               .card__text Native to Congo
             img(src=`../images/grass-eating.png`).card__icon
-        .animals__item.card
+        .animals__item.card.card-sloth
           .card__img
             img(src=`../images/sloth-card.png`)
             .card__buf-img
@@ -154,7 +154,21 @@ header.header
               .card__name Two-toed Sloth
               .card__text Mesoamerica, South America
             img(src=`../images/grass-eating.png`).card__icon
-        .animals__item.card.animals__item--hide
+        .animals__item.card.card-alligator
+          .card__img
+            img(src=`../images/alligator-card.png`)
+            .card__buf-img
+          .card__content
+            .card__desc.card__show
+              p.card__name Alligators
+              p.card__text.card__text-short Native to Southeastern U. S.
+              p.card__text.card__text-long Native to Southeastern United States
+            .card__desc
+              .card__name Alligators
+              .card__text.card__text-short Native to Southeastern U. S.
+              .card__text.card__text-long Native to Southeastern United States
+            img(src=`../images/meat-eating.png`).card__icon
+        .animals__item.card.animals__item--hide.card-cheetah
           .card__img
             img(src=`../images/cheetah-card.png`)
             .card__buf-img
@@ -166,7 +180,7 @@ header.header
               .card__name cheetahs
               .card__text Native to Africa
             img(src=`../images/meat-eating.png`).card__icon
-        .animals__item.card.animals__item--hide
+        .animals__item.card.animals__item--hide.card-penguin
           .card__img
             img(src=`../images/penguin-card.png`)
             .card__buf-img
@@ -179,7 +193,7 @@ header.header
               .card__text Native to Antarctica
             img(src=`../images/meat-eating.png`).card__icon
     .btn.animals__btn
-      a(src='#') choose your favorite
+      a(href='#') choose your favorite
 section.donation 
   //- .container
   .donation__content
@@ -189,7 +203,7 @@ section.donation
       p.donation__text.common__text--medium.common__text.donation--hide
         |During a time when the COVID-19 epidemic is touching all of our lives, we’re proud and glad that people around the world find joy in PetStory.
       p.common__text.donation__text.mr-p-emergency.donation--hide
-        |Even though the zoo has reopened, we need you now more than ever to help us deal with these problems. Please consider a gift to our #[a(href="#") Emergency Support Fund]. 
+        |Even though the zoo has reopened, we need you now more than ever to help us deal with these problems. Please consider a gift to our #[a(href="./donate.html") Emergency Support Fund]. 
     //- .donation__list-title.block__title.block__titleH3.block__text--center How it works
     .donation__list-title How it works
     .donation__list
@@ -208,7 +222,7 @@ section.donation
           img(src=`../images/donation-monkey.png`).donation__img
         .donation__item-text Your favourite animal gets delicious dish
     .btn.donation__btn
-      a(src='#') Feed a friend now
+      a(href='./donate.html') Feed a friend now
 section.testimonial
   img(src='/images/testimonial-flower.png').testimonial__flower
   //- img(src='/images/testimonial-flower.png').testimonial__flower-mobile
@@ -274,11 +288,11 @@ section.testimonial
           .testimonial__slider-scroll-active
           .testimonial__slider-scroll-background
         .btn.btn--square.testimonial__btn
-          a(src='#') Leave feedback
+          a(href='#') Leave feedback
 
 footer.footer
   .container.footer__grid
-    a(href='').logo.footer__logo
+    a(href='./index.html').logo.footer__logo
       .logo-top.logo__text PetStory
       .logo-bottom 
         .logo__text online
@@ -287,12 +301,12 @@ footer.footer
     .footer__form
       .footer__title Subscribe to our news
       .footer__form-item
-        input(type="email" placeholder="Enter your email").input.input--dark.input-footer
+        input(type="email" title="Please provide e-mail address" placeholder="Enter your email").input.input--dark.input-footer
         input(type='submit' pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
     required value='Submit').btn-submit.footer__submit
-          //- a(src='#') 
+          //- a(href='#') 
     .btn.btn--square.footer__btn
-      a(src='#') donate for volunteers
+      a(href='./donate.html') donate for volunteers
     .social__list 
       a(href='https://facebook.com/').social__item 
         .social__item-img
@@ -313,13 +327,13 @@ footer.footer
     .menu.footer__menu
       .menu__list.menu__list--footer
         li.menu__item.menu__item--active
-          a(src='#') About
+          a(href='./donate.html') About
         li.menu__item
-          a(src='#') Map
+          a(href='#') Map
         li.menu__item
-          a(src='#') Zoos
+          a(href='#') Zoos
         li.menu__item
-          a(src='#') Contact us
+          a(href='#') Contact us
     a(href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online").footer__author
       p.common__textThin.footer__author-line Designed by Alisa Samborskaya 
       p.common__textThin.footer__author-line ©RSSchool & ©Yem Digital 2021

@@ -56,9 +56,9 @@ input[type='email']:invalid {
       45deg,
       $colorRed 1%,
       $colorRed 101.44%
-    )
-    1;
+    ) -1;
   // border-width: 10px;
+  border-radius: 2px;
   color: $colorRed;
 }
 input[type='email']:invalid ~ input[type='submit'] {
@@ -66,8 +66,7 @@ input[type='email']:invalid ~ input[type='submit'] {
       45deg,
       $colorRed 1%,
       $colorRed 101.44%
-    )
-    1;
+    ) -1;
   // border-width: 10px;
   color: $colorRed;
 }
@@ -80,6 +79,7 @@ input[type='email']:focus {
       $colorGreen 101.44%
     )
     1;
+  // border-radius: 2px;
   // border: 1px solid red;
   // box-shadow: 0 0 10px #719ece;
 }

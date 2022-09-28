@@ -50,7 +50,7 @@
     gap: 87px;
     grid-template-columns: minmax(auto, 609px) minmax(auto, 456px);
     position: relative;
-    z-index: 5;
+    z-index: 1;
     // grid-template-columns: minmax(auto, 610px) minmax(auto, 456px);
     @include respond(smallDesktop) {
       gap: 29px;

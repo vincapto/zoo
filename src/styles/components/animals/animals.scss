@@ -134,19 +134,29 @@
     column-gap: 30px;
     row-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(299px, 1fr));
+    grid-template-areas:
+      'panda eagle gorilla'
+      'sloth cheetah penguin';
 
     @include respond(bigDesktop) {
       row-gap: 92px;
     }
     @include respond(smallDesktop) {
       grid-template-columns: repeat(3, minmax(auto, 294px));
+      grid-template-areas:
+        'panda eagle cheetah'
+        'gorilla alligator penguin';
       row-gap: 92px;
       column-gap: 5px;
     }
     @include respond(tablet) {
+      grid-template-areas:
+        'panda eagle '
+        'gorilla alligator ';
       grid-template-columns: repeat(2, minmax(auto, 285px));
     }
     @include respond(mobile) {
+      grid-template-areas: 'panda' 'eagle' 'gorilla' 'alligator ';
       grid-template-columns: minmax(auto, 285px);
       row-gap: 20px;
       margin-bottom: 21px;
@@ -194,11 +204,68 @@
   }
   &__item {
     position: relative;
-    z-index: 5;
+    z-index: 2;
     &--hide {
       @include respond(tablet) {
-        display: none;
+        // display: none;
       }
     }
+  }
+}
+
+.card-order {
+  grid-template-areas:
+    'panda eagle gorilla'
+    'sloth cheetah penguin';
+}
+
+.card-eagle {
+  grid-area: eagle;
+}
+.card-gorilla {
+  grid-area: gorilla;
+}
+.card-penguin {
+  grid-area: penguin;
+}
+.card-cheetah {
+  grid-area: cheetah;
+}
+.card-sloth {
+  grid-area: sloth;
+}
+.card-panda {
+  grid-area: panda;
+}
+.card-alligator {
+  grid-area: alligator;
+  display: none;
+  .card__text-long {
+    display: none;
+  }
+}
+
+@include respond(smallDesktop) {
+  .card-alligator {
+    display: block;
+  }
+  .card-sloth {
+    display: none;
+  }
+}
+@include respond(tablet) {
+  .card-alligator {
+    .card__text-short {
+      display: none;
+    }
+    .card__text-long {
+      display: block;
+    }
+  }
+  .card-penguin {
+    display: none;
+  }
+  .card-cheetah {
+    display: none;
   }
 }

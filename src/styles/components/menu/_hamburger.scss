@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 10;
   @include respond(tablet) {
     display: flex;
     right: 20px;

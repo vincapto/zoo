@@ -23,6 +23,10 @@
   position: relative;
   background: $colorBlack;
   z-index: 3;
+  @include respond(tablet) {
+    position: fixed;
+    top: 0;
+  }
 }
 
 .block {

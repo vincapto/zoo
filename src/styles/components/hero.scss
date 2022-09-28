@@ -93,6 +93,7 @@
     align-items: flex-end;
     @include respond(smallDesktop) {
       margin-bottom: 29px;
+      margin-top: 34px;
     }
     @include respond(mobile) {
       padding-bottom: 42px;
