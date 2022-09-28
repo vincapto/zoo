@@ -1,20 +1,21 @@
 mixin range()
   #form-wrapper
+    .donate__text-amount Amount
     #debt-amount-slider
     .range
       .range__container
-        .radio__wrapper.range__radio.radio
+        .radio__wrapper.range__radio.radio.range-desktop
           .radio-hover-block
           input(type="radio" id="radio00" name="radio").radio-input
           label(for="radio00").radio__label
             span.radio__mark.radio__mark-range
             p.range__step-text 5000
-        .radio__wrapper.range__radio.radio
+        .radio__wrapper.range__radio.radio.range-tablet
           input(type="radio" id="radio01" name="radio").radio-input
           label(for="radio01").radio__label
             span.radio__mark.radio__mark-range
             p.range__step-text 2000
-        .radio__wrapper.range__radio.radio
+        .radio__wrapper.range__radio.radio.range-tablet
           input(type="radio" id="radio02" name="radio").radio-input
           label(for="radio02").radio__label
             span.radio__mark.radio__mark-range         

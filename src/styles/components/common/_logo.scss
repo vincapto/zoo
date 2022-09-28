@@ -89,14 +89,24 @@
 
   &--filter {
     display: none;
-    max-width: 54px;
+    max-width: 66px;
+    height: 42px;
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 30px;
     filter: $filterSvg;
+    font-size: 15.21px;
+    line-height: 18.25px;
     border: 1px solid $colorOrange;
+
     @include respond(tablet) {
       display: block;
+      img {
+        width: 15px;
+        height: 15px;
+        bottom: 6px;
+        left: 0px;
+      }
     }
   }
 }

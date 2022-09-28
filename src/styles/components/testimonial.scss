@@ -8,19 +8,25 @@
   }
   &__flower {
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: -78px;
+    bottom: -126px;
     @include respond(smallDesktop) {
-      bottom: -85px;
-      width: 195px;
+      width: 184px;
+      right: -62px;
+      bottom: -79px;
     }
     @include respond(tablet) {
-      right: -9px;
-      bottom: -77px;
-      width: 130px;
+      right: -46px;
+      bottom: -66px;
+      width: 116px;
     }
     @include respond(mobile) {
-      display: none;
+      // display: none;
+      transform: rotate(-13deg);
+
+      right: -27px;
+      bottom: -32px;
+      width: 58px;
     }
     &-mobile {
       display: none;
@@ -42,7 +48,7 @@
     }
     @include respond(tablet) {
       // max-height: 332px;
-      margin-top: 63px;
+      margin-top: 59px;
       margin-bottom: 80px;
     }
     @include respond(mobile) {
@@ -61,8 +67,8 @@
     justify-content: center;
 
     @include respond(mobile) {
-      margin-top: 31px;
-      margin-bottom: 20px;
+      margin-top: 20px;
+      margin-bottom: 12px;
     }
   }
   &__list {
@@ -75,19 +81,21 @@
     @include respond(smallDesktop) {
       gap: 5px;
       padding-top: 31px;
-      margin-bottom: 23px;
+      margin-bottom: 18px;
       justify-content: space-between;
+      justify-items: stretch;
       grid-template-columns: repeat(3, minmax(180px, 293px));
     }
     @include respond(tablet) {
       grid-template-columns: 1fr;
       padding-top: 30px;
-      margin-bottom: 42px;
-      gap: 15px;
+      margin-bottom: 39px;
+      gap: 13px;
     }
     @include respond(mobile) {
       padding: 0;
       margin-bottom: 30px;
+      gap: 15px;
     }
   }
   &__slider-scroll-active {
@@ -99,6 +107,10 @@
     height: 6px;
     align-self: center;
     background: $colorOrange;
+    @include respond(smallDesktop) {
+      max-width: 75px;
+      // margin: 0 auto;
+    }
   }
   &__slider-scroll-background {
     position: absolute;
@@ -112,8 +124,10 @@
     height: 54px;
     @include respond(smallDesktop) {
       margin-top: 50px;
+      top: 3px;
     }
     @include respond(tablet) {
+      top: 0;
       max-width: 240px;
       margin: 0 auto;
     }
@@ -129,10 +143,16 @@
     background-image: $linearPinkGrad;
     border-radius: 5px;
     &-active {
+      cursor: pointer;
       transition: all 0.2s ease;
       &:hover {
         transform: scale(1.1);
       }
+    }
+    @include respond(smallDesktop) {
+      max-width: 390px;
+      // margin: 0 auto;
+      left: -7px;
     }
   }
   .border-gradient {
@@ -171,6 +191,11 @@
       height: 100%;
       @include respond(tablet) {
         padding: 11px;
+        padding-top: 15px;
+      }
+      @include respond(mobile) {
+        padding: 12px;
+        // padding-top: 15px;
       }
     }
     &--active {
@@ -186,6 +211,10 @@
     }
     &-desc {
       padding-left: 10px;
+      @include respond(mobile) {
+        padding-left: 6px;
+        // padding-top: 15px;
+      }
     }
     &-img {
       max-width: 37px;
@@ -220,6 +249,9 @@
       min-height: 309px;
       max-width: 237px;
       width: 100%;
+      @include respond(smallDesktop) {
+        max-width: none;
+      }
       @include respond(tablet) {
         min-height: auto;
         // text-align: center;
@@ -231,6 +263,10 @@
         -webkit-box-orient: vertical;
 
         max-width: 100%;
+        margin-left: 6px;
+      }
+      @include respond(mobile) {
+        margin-left: 6px;
       }
     }
   }

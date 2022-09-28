@@ -5,10 +5,33 @@
   height: 27px;
   border-radius: 2px;
   padding: 8px 26px;
+  @include respond(smallDesktop) {
+    padding: 8px 12px;
+  }
+  @include respond(tablet) {
+    padding: 8px 35px;
+  }
+  @include respond(mobile) {
+    padding: 6px 17px;
+    height: 13.5px;
+  }
+  &-desktop {
+    @include respond(smallDesktop) {
+      display: none;
+    }
+  }
+  &-tablet {
+    @include respond(tablet) {
+      display: none;
+    }
+  }
   &__container {
     display: flex;
     justify-content: space-between;
     position: relative;
+    @include respond(mobile) {
+      top: -2px;
+    }
     &::after {
       content: '';
       position: absolute;
@@ -39,7 +62,18 @@
     font-weight: 500;
     font-size: 26px;
     line-height: 36px;
-    /* or 36px */
+    @include respond(smallDesktop) {
+      margin-left: 1px;
+    }
+    @include respond(tablet) {
+      margin-left: -6px;
+    }
+    @include respond(mobile) {
+      font-size: 13px;
+      line-height: 18px;
+      margin-top: -10px;
+      margin-left: -3px;
+    }
 
     text-transform: uppercase;
     position: absolute;
@@ -54,6 +88,12 @@
       right: 101%;
       bottom: 14px;
       height: 20px;
+      @include respond(mobile) {
+        // height: 10px;
+        bottom: 0;
+        right: 89%;
+        transform: scale(0.6);
+      }
     }
   }
 }

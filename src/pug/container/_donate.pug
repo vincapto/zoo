@@ -53,7 +53,7 @@ header.donate-header
               img(src="/images/x_icon.svg", alt="")
           .donate__panda
             img(src="/images/panda_icon.svg", alt="")
-        .donate__text-amount Amount
+        
         +range()
         //- input(type="range").donate__range
         .donate__pay
@@ -76,7 +76,7 @@ header.donate-header
             a(src='#') Feed a friend now
         p.donate__text Share with your friends on social networks 
 footer.footer
-  .container.footer__grid
+  .container.footer__grid#donate__footer
     a(href='').logo.logo-header.footer__logo.logo
       .logo-top.logo__text PetStory
       .logo-bottom 
@@ -111,7 +111,7 @@ footer.footer
         p.social__item-text YouTube
     .menu.footer__menu
       .menu__list.menu__list--footer
-        li.menu__item.menu__item--active
+        li.menu__item
           a(src='#') About
         li.menu__item
           a(src='#') Map

@@ -14,13 +14,16 @@
 
   @include respond(smallDesktop) {
     padding-bottom: 20px;
+    background-size: 1200px;
   }
 
   @include respond(tablet) {
     padding-bottom: 5px;
+    background-size: 765px;
   }
   @include respond(mobile) {
     padding-bottom: 0;
+    background-size: 384px;
   }
 
   &__content {
@@ -60,9 +63,11 @@
     @include respond(mobile) {
       position: absolute;
       // bottom: 368px;
-      bottom: 64.5%;
+      // bottom: 64.5%;
+      top: 242px;
+      bottom: auto;
       margin: 0;
-      left: 14px;
+      left: 11px;
       align-self: center;
     }
   }
@@ -91,7 +96,7 @@
     }
     @include respond(mobile) {
       padding-bottom: 42px;
-      margin-bottom: 105px;
+      margin-bottom: 0;
     }
   }
   &__title {
