@@ -263,6 +263,14 @@
 .card5 {
   grid-area: card5;
 }
+
+@include respond(tablet) {
+  .card4,
+  .card5 {
+    display: none;
+  }
+}
+
 // .card-eagle {
 //   grid-area: eagle;
 // }

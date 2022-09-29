@@ -282,6 +282,29 @@
     flex-direction: column;
     margin-top: 100px;
     align-items: center;
+    input[type='number']:focus {
+      color: $colorGreen;
+      border-image: repeating-linear-gradient(
+          45deg,
+          $colorGreen 1%,
+          $colorGreen 101.44%
+        )
+        1;
+    }
+    input[type='email']:number {
+      border-image: repeating-linear-gradient(
+          45deg,
+          $colorRed 1%,
+          $colorRed 101.44%
+        ) -1;
+      // border-width: 10px;
+      color: $colorRed;
+    }
+    input[type='number']:focus ~ img {
+      filter: invert(44%) sepia(31%) saturate(6962%) hue-rotate(62deg)
+        brightness(98%) contrast(101%);
+    }
+
     @include respond(mobile) {
       margin-top: 51px;
       // gap: 50px;

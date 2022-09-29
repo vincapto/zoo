@@ -65,6 +65,14 @@
       transform: translateY(-50%) translateX(-50%);
     }
   }
+
+  &-input:checked + label .range__step-text::before {
+    filter: invert(57%) sepia(65%) saturate(4233%) hue-rotate(2deg)
+      brightness(95%) contrast(93%);
+  }
+  &-input:checked + label .range__step-text {
+    color: $colorOrangeHover;
+  }
   &__label {
     cursor: pointer;
     display: flex;

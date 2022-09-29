@@ -39,7 +39,7 @@ function createRadioButton({ price, key, className = '', object }) {
 
   console.log('CLASS', className);
 
-  element.classList.add('radio__wrapper', 'range__radio', 'radio');
+  element.classList.add('radio__wrapper', 'range__radio', 'radio', className);
   const inner = `
   <label class="radio__label" for="radio${key}" >
   <span class="radio__mark radio__mark-range"></span>
