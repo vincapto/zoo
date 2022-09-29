@@ -119,6 +119,7 @@ export const cardOrder = [
   [0, 1, 2, 5],
 ];
 
+export const radioValue = [5000, 2000, 1000, 500, 250, 100, 50, 25];
 export const sliderQueryState = {
   bigDesktop: {
     count: 6,

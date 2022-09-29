@@ -1,16 +1,39 @@
-import { animalsData, testimonialsData, sliderQueryState } from './sliderData';
-import { createAnimalCard, createTestimonialCard } from './sliderCard';
+import {
+  radioValue,
+  animalsData,
+  testimonialsData,
+  sliderQueryState,
+} from './sliderData';
+
+import {
+  createRadioButton,
+  createAnimalCard,
+  createTestimonialCard,
+} from './sliderCard';
+
 console.log(testimonialsData);
 console.log(createTestimonialCard);
 
 const leftAnimalsBtn = document.querySelector('.animals__left');
 const rightAnimalsBtn = document.querySelector('.animals__right');
 const animalsList = document.querySelector('.animals__list');
+const rangeContainer = document.querySelector('.range__container');
 const testimonialList = document.querySelector('.testimonial__list');
 const testimonialRange = document.querySelector('.testimonial__input-range');
 const testimonialArray = testimonialsData.map((a) =>
   createTestimonialCard({ ...a, callback: stopAutoSlider })
 );
+
+const radioArray = radioValue.map((a, key) => {
+  return createRadioButton({ a, key });
+});
+
+alert('');
+
+if (rangeContainer) {
+  rangeContainer.innerHTML = '';
+  rangeContainer.append(...radioArray);
+}
 
 console.log(testimonialArray);
 

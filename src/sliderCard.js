@@ -22,6 +22,33 @@ modalElement.addEventListener('click', () => {
   closeModalHandler();
 });
 
+export function createRadioButton({ price, key, className = '' }) {
+  const element = document.createElement('div');
+
+  element.classList.add(
+    'radio__wrapper',
+    'range__radio',
+    'range',
+    'range-tablet',
+    className
+  );
+  // <div class="radio__wrapper range__radio radio range-tablet">
+  const inner = `
+        <input class="radio-input" type="radio" id="radio${key}" name="radio" /><label
+          class="radio__label"
+          for="radio${key}"
+          ><span class="radio__mark radio__mark-range"></span>
+          <p class="range__step-text">${price}</p></label
+        >
+        `;
+  // </div>
+  element.innerHTML = inner;
+  const radio = document.querySelector(`#radio${key}`);
+  radio.addEventListener('change', (event) => {
+    alert(event.target);
+  });
+  return element;
+}
 export function createAnimalCard({
   cardName,
   cardText,

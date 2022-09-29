@@ -1,6 +1,7 @@
 export {};
 import './styles/index.scss';
-import './slider';
+// import './slider';
+import './radio';
 
 const menu = document.querySelector('.menu__list');
 const hamburgerElement = document.querySelector('.hamburger');
@@ -11,23 +12,23 @@ hamburgerElement.addEventListener('click', (e) => {
   menu.classList.toggle('menu__list--active');
 });
 
-// let oldValue = '';
-// const amount = document.querySelector('.input-amount');
-// amount.addEventListener('input', (e) => {
-//   e.preventDefault();
-//   // @ts-ignore
-//   const value = e.target.value;
-//   // @ts-ignore
-//   if (value.length <= 4) {
-//     // @ts-ignore
-//     oldValue = value;
-//     // @ts-ignore
-//     e.target.value = value;
-//   } else {
-//     // @ts-ignore
-//     e.target.value = oldValue;
-//   }
-// });
+let oldValue = '';
+const amount = document.querySelector('.input-amount');
+amount.addEventListener('input', (e) => {
+  e.preventDefault();
+  // @ts-ignore
+  const value = e.target.value;
+  // @ts-ignore
+  if (value.length <= 4) {
+    // @ts-ignore
+    oldValue = value;
+    // @ts-ignore
+    e.target.value = value;
+  } else {
+    // @ts-ignore
+    e.target.value = oldValue;
+  }
+});
 // @import '../variables';
 // .testimonial {
 //   &__content {
