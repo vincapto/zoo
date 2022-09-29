@@ -1,6 +1,33 @@
 @import 'font';
 // @import 'variables';
 @import 'mixin';
+body {
+  position: relative;
+}
+.modal {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  z-index: 999;
+  background: $colorModal;
+  display: none;
+  &--active {
+    display: block;
+  }
+  &__child {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    max-width: 268px;
+    // width: 100%;
+    transform: translateX(-50%) translateY(-50%);
+    &--active {
+      display: block;
+    }
+  }
+}
 
 .container {
   margin: 0 auto;

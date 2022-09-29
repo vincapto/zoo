@@ -1,145 +1,82 @@
-const animalsData = [
-  {
-    img: `../images/panda-card.png`,
-    cardName: 'giant Pandas',
-    cardText: 'Native to Southwest China',
-    cardIcon: `../images/grass-eating.png`,
-  },
-  {
-    img: `../images/eagle-card.png`,
-    cardName: 'Eagles',
-    cardText: 'Native to South America',
-    cardIcon: `../images/meat-eating.png`,
-  },
-  {
-    img: `../images/gorilla-card.png`,
-    cardName: 'Gorillas',
-    cardText: 'Native to Congo',
-    cardIcon: `../images/grass-eating.png`,
-  },
-  {
-    img: `../images/sloth-card.png`,
-    cardName: 'Two-toed Sloth',
-    cardText: 'Mesoamerica, South America',
-    cardIcon: `../images/grass-eating.png`,
-  },
-  {
-    img: `../images/cheetah-card.png`,
-    cardName: 'cheetahs',
-    cardText: ' Native to Africa',
-    cardIcon: `../images/meat-eating.png`,
-  },
-  {
-    img: `../images/penguin-card.png`,
-    cardName: 'Penguins',
-    cardText: 'Native to Antarctica',
-    cardIcon: `../images/grass-eating.png`,
-  },
-  {
-    img: `../images/alligator-card.png`,
-    cardName: 'Alligators',
-    cardText: 'Native to Southeastern U. S.',
-    cardIcon: `../images/meat-eating.png`,
-  },
-];
+import { animalsData, testimonialsData, sliderQueryState } from './sliderData';
+import { createAnimalCard, createTestimonialCard } from './sliderCard';
+console.log(testimonialsData);
+console.log(createTestimonialCard);
 
-const cardOrder = [
-  [0, 1, 2, 3, 4, 5, 6],
-  [0, 1, 4, 2, 6, 5, 3],
-  [0, 1, 2, 5, 4, 5, 3],
-  [0, 1, 2, 5],
-];
+const leftAnimalsBtn = document.querySelector('.animals__left');
+const rightAnimalsBtn = document.querySelector('.animals__right');
+const animalsList = document.querySelector('.animals__list');
+const testimonialList = document.querySelector('.testimonial__list');
+const testimonialRange = document.querySelector('.testimonial__input-range');
+const testimonialArray = testimonialsData.map((a) =>
+  createTestimonialCard({ ...a, callback: stopAutoSlider })
+);
 
-const sliderQueryState = {
-  bigDesktop: {
-    count: 6,
-    order: cardOrder[0],
-    width: 1600,
-  },
-  smallDesktop: {
-    count: 6,
-    order: cardOrder[1],
-    width: 1000,
-  },
-  tablet: {
-    count: 4,
-    order: cardOrder[2],
-    width: 640,
-  },
-  mobile: {
-    count: 4,
-    order: cardOrder[3],
-    width: 320,
-  },
-};
+console.log(testimonialArray);
 
 let currentAnimalsState = { state: sliderQueryState.bigDesktop, page: 0 };
+const testimonialSlides = 8;
+console.log(testimonialSlides);
+
+function getTestimonialPages() {
+  const value =
+    currentAnimalsState.state.testimonialCount + testimonialSlides - 1;
+  // testimonialRange.max = value;
+  return value;
+}
+
+function getTestimonialOrder(count) {
+  const res = new Array(count).fill(0).reduce((a, b, key) => {
+    console.log(a, b, key);
+    a.push(key);
+    return [...a];
+  }, []);
+  console.log('ARRAY ORDER', res);
+  return res;
+}
+getTestimonialPages();
 
 function getCurrentSize(key) {
   switch (true) {
     case key > 1001 && currentAnimalsState.state.width !== 1600:
       console.log('BIG DESKTOP');
       currentAnimalsState.state = sliderQueryState.bigDesktop;
+      clearAutoStart();
       setAnimalCard(loadAnimalCard(getAnimalsPerPage()));
+      setTestimonialCard();
       break;
     case key <= 1000 && key > 640 && currentAnimalsState.state.width !== 1000:
       console.log('Small DESKTOP');
       currentAnimalsState.state = sliderQueryState.smallDesktop;
+      clearAutoStart();
       setAnimalCard(loadAnimalCard(getAnimalsPerPage()));
+      setTestimonialCard();
       break;
     case key <= 640 && key > 320 && currentAnimalsState.state.width !== 640:
       console.log('TABLEY');
       currentAnimalsState.state = sliderQueryState.tablet;
+      clearAutoStart();
+      startAutoSlider();
       setAnimalCard(loadAnimalCard(getAnimalsPerPage()));
+      setTestimonialCard();
       break;
     case key <= 320 && currentAnimalsState.state.width !== 320:
       currentAnimalsState.state = sliderQueryState.mobile;
       currentAnimalsState.page = 0;
       console.log('MOBILE');
+      clearAutoStart();
+      startAutoSlider();
       setAnimalCard(loadAnimalCard(getAnimalsPerPage()));
+      setTestimonialCard();
       break;
 
     default:
       break;
   }
 }
-
 window.addEventListener('resize', () => {
-  // const key = window.innerWidth;
   getAnimalsPerPage();
 });
-
-const leftAnimalsBtn = document.querySelector('.animals__left');
-const rightAnimalsBtn = document.querySelector('.animals__right');
-const animalsList = document.querySelector('.animals__list');
-
-function createAnimalCard({
-  cardName,
-  cardText,
-  img,
-  cardIcon,
-  className = '',
-}) {
-  return `
-    <div class="animals__item card card-panda ${className}">
-      <div class="card__img">
-        <img src="${img}" />
-        <div class="card__buf-img"></div>
-      </div>
-      <div class="card__content">
-        <div class="card__desc card__show">
-          <p class="card__name">${cardName}</p>
-          <p class="card__text">${cardText}</p>
-        </div>
-        <div class="card__desc">
-          <div class="card__name">${cardName}</div>
-          <div class="card__text">${cardText}</div>
-        </div>
-        <img class="card__icon" src="${cardIcon}" />
-      </div>
-    </div>
-  `;
-}
 
 function loadAnimalCard(order) {
   const renderList = order.map((o) => {
@@ -147,11 +84,26 @@ function loadAnimalCard(order) {
   });
   return renderList;
 }
+function loadTestimonialCard(order) {
+  const renderList = order.map((o) => {
+    return testimonialArray[o];
+    // return createTestimonialCard(testimonialsData[o]);
+  });
+  return renderList;
+}
 
 function setAnimalCard(list) {
-  // console.log('SET LIST', list);
   animalsList.innerHTML = checkNumberPerPage(list).join('');
 }
+
+function setTestimonialCard() {
+  const arr = loadTestimonialCard(getTestimonialPerPage());
+  // testimonialList.innerHTML = arr.join('');
+  testimonialList.innerHTML = '';
+  testimonialList.append(...arr);
+  console.log('ARR', arr);
+}
+setTestimonialCard();
 
 function getAnimalsPerPage() {
   getCurrentSize(window.innerWidth);
@@ -163,58 +115,131 @@ function getAnimalsPerPage() {
   return spliceArr;
 }
 
-setAnimalCard(loadAnimalCard(checkNumberPerPage(getAnimalsPerPage())));
-// setAnimalCard(loadAnimalCard(cardOrder[0]));
-
-function fillHidden(loadArray) {
-  return [
-    ...loadArray,
-    new Array(currentAnimalsState.state.count - loadArray.length)
-      .fill(createAnimalCard({ ...animalsData[0], className: 'card--hidden' }))
-      .join(''),
-  ];
+function getTestimonialPerPage() {
+  getCurrentSize(window.innerWidth);
+  const start = currentAnimalsState.page;
+  const arr = getTestimonialOrder(getTestimonialPages());
+  const spliceArr = arr.splice(
+    start != 0 ? start : 0,
+    currentAnimalsState.state.testimonialCount
+  );
+  console.log(arr);
+  return spliceArr;
 }
 
-leftAnimalsBtn.addEventListener('click', () => {
-  currentAnimalsState.page =
-    currentAnimalsState.page != 0
-      ? (currentAnimalsState.page -= 1)
-      : currentAnimalsState.page;
-  let loadArray = loadAnimalCard(getAnimalsPerPage());
-  loadArray =
-    loadArray.length === currentAnimalsState.state.count
-      ? loadArray
-      : [
-          ...loadArray,
-          new Array(currentAnimalsState.state.count - loadArray.length).fill(
-            createAnimalCard(animalsData[0])
-          ),
-        ];
-  setAnimalCard(loadArray);
-});
+function getRandomCardOrder(
+  max = animalsData.length,
+  length = currentAnimalsState.state.count
+) {
+  let flag = true;
+  const arr = [];
+  let buff = 0;
+  const min = 0;
 
-function checkNumberPerPage(loadArray) {
+  while (flag) {
+    buff = Math.floor(Math.random() * (max - min) + min);
+    if (!arr.includes(buff)) {
+      arr.push(buff);
+    }
+    if (arr.length === length) {
+      flag = false;
+    }
+  }
+  return arr;
+}
+
+function animateSlideList(
+  hide = 'slide-left-hide',
+  show = 'slide-left-show',
+  callback,
+  list = animalsList
+) {
+  list.classList.add(hide);
+  list.onanimationend = () => {
+    list.classList.remove(hide);
+    callback();
+    list.classList.add(show);
+    list.onanimationend = () => {
+      list.classList.remove(show);
+    };
+  };
+}
+
+function checkNumberPerPage(loadArray = []) {
   return loadArray.length === currentAnimalsState.state.count
     ? loadArray
-    : fillHidden(loadArray);
+    : loadAnimalCard(getRandomCardOrder());
+}
+let testimonialInterval = '';
+let testimonialTimeout = '';
+
+// startAutoSlider(1000);
+
+function checkTestimonialSize() {
+  return currentAnimalsState.page < testimonialSlides - 1
+    ? currentAnimalsState.page + 1
+    : 0;
 }
 
-rightAnimalsBtn.addEventListener('click', () => {
-  console.log(currentAnimalsState);
-  const pageMax = Math.floor(
-    animalsData.length / currentAnimalsState.state.count
+function startAutoSlider(length = 1000, delay = 0) {
+  testimonialInterval = setInterval(() => {
+    currentAnimalsState.page = checkTestimonialSize();
+    testimonialRange.value = currentAnimalsState.page;
+    animateSlideList(
+      'slide-right-hide',
+      'slide-right-show',
+      setTestimonialCard,
+      testimonialList
+    );
+  }, length);
+}
+
+function stopAutoSlider() {
+  clearInterval(testimonialInterval);
+  testimonialTimeout = setTimeout(() => {
+    clearTimeout(testimonialTimeout);
+    startAutoSlider(1000);
+    // alert(testimonialTimeout);
+  }, 2000);
+}
+
+// export function clearTestimonialInterval(params) {}
+export function restartTestimonialTimeout() {
+  clearInterval(testimonialInterval);
+  clearTimeout(testimonialTimeout);
+  startAutoSlider(1000);
+}
+
+function clearAutoStart() {
+  clearInterval(testimonialInterval);
+  clearTimeout(testimonialTimeout);
+}
+
+testimonialRange.addEventListener('input', (event) => {
+  console.log(event.target);
+  currentAnimalsState.page = event.target.value;
+  // setTestimonialCard();
+  animateSlideList(
+    'slide-right-hide',
+    'slide-right-show',
+    setTestimonialCard,
+    testimonialList
   );
-  console.table(currentAnimalsState.state);
-  currentAnimalsState.page =
-    currentAnimalsState.page != pageMax
-      ? (currentAnimalsState.page += 1)
-      : currentAnimalsState.page;
-  let loadArray = loadAnimalCard(getAnimalsPerPage());
-  loadArray =
-    loadArray.length === currentAnimalsState.state.count
-      ? loadArray
-      : fillHidden(loadArray);
-  console.log(loadArray);
-  setAnimalCard(loadArray);
-  // setAnimalCard(loadAnimalCard(getAnimalsPerPage()));
+  console.log(currentAnimalsState.page);
 });
+
+leftAnimalsBtn.addEventListener('click', () => {
+  const callback = () => {
+    setAnimalCard(loadAnimalCard(getRandomCardOrder()));
+  };
+  animateSlideList('slide-left-hide', 'slide-left-show', callback);
+});
+
+rightAnimalsBtn.addEventListener('click', () => {
+  const callback = () => {
+    setAnimalCard(loadAnimalCard(getRandomCardOrder()));
+  };
+  animateSlideList('slide-right-hide', 'slide-right-show', callback);
+});
+
+setAnimalCard(loadAnimalCard(getRandomCardOrder()));
