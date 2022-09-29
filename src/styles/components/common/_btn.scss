@@ -14,6 +14,7 @@
   transition: background 0.2s ease;
   overflow: hidden;
   position: relative;
+
   a {
     color: $colorWhite;
   }
@@ -74,6 +75,7 @@
 
   &--square {
     border-radius: 5px;
+    height: 54px;
     max-width: 298px;
     width: 100%;
     // display: flex;

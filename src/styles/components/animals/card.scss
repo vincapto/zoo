@@ -1,4 +1,6 @@
 .card {
+  // transform: translateX(0);
+  // opacity: 1;
   border: 1px solid $colorOrangeHover;
   border-radius: $borderCard;
   box-sizing: border-box;
@@ -9,7 +11,7 @@
   width: 100%;
   background: $colorWhite;
   // max-height: 425px;
-  transition: all 0.2s ease-in;
+  // transition: all 0.3s ease-in;
   @include respond(smallDesktop) {
     // max-height: 354px;
   }
@@ -129,6 +131,12 @@
     }
   }
   &__icon {
+    @include respond(tablet) {
+      // max-height: 332px;
+      position: relative;
+      transform: scale(0.75);
+      left: 6px;
+    }
     @include respond(mobile) {
       // max-height: 332px;
       position: relative;

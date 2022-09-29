@@ -66,24 +66,28 @@
   }
   &__img {
     position: absolute;
-    width: 9px;
+    // width: 9px;
+    // height: 15px;
+    // bottom: 2px;
+    // left: -5px;
+    // height: 34px;
+    width: 12px;
     height: 15px;
-    bottom: 2px;
+    bottom: -1px;
     left: -5px;
     height: 34px;
-
     @include respond(smallDesktop) {
-      width: 9px;
-      height: 15px;
-      bottom: 2px;
-      left: -5px;
-      height: 34px;
+      // width: 9px;
+      // height: 15px;
+      // bottom: 2px;
+      // left: -5px;
+      // height: 34px;
     }
     @include respond(tablet) {
-      width: 15px;
+      width: 8px;
       height: 15px;
       bottom: 3px;
-      left: -7pxpx;
+      left: -4px;
     }
   }
 

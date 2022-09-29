@@ -92,7 +92,7 @@
     text-align: center;
     // margin: 0 auto;
     @extend %h2Regular;
-    color: $colorOrangeHover;
+    color: #fe9013;
     @include respond(smallDesktop) {
       margin-bottom: 23px;
     }

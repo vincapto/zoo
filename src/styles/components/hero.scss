@@ -48,6 +48,7 @@
     // grid-column: 2/3;
     margin-right: 100px;
     position: relative;
+
     // left: 45px;
 
     // justify-self: flex-end;
@@ -93,7 +94,10 @@
     align-items: flex-end;
     @include respond(smallDesktop) {
       margin-bottom: 29px;
-      margin-top: 34px;
+      // margin-top: 34px;
+    }
+    @include respond(tablet) {
+      // margin-top: 34px;
     }
     @include respond(mobile) {
       padding-bottom: 42px;
@@ -125,7 +129,8 @@
       width: 400px;
     }
     @include respond(tablet) {
-      margin-top: 49px;
+      // margin-top: 49px;
+      margin-top: 83px;
       font-size: 54.2px;
       line-height: 75%;
       right: 0;
@@ -133,7 +138,7 @@
       width: 255.64px;
     }
     @include respond(mobile) {
-      margin-top: 40px;
+      margin-top: 74px;
       font-size: 28px;
       line-height: 75%;
       min-width: min-content;

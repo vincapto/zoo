@@ -100,12 +100,16 @@ header.header
   .container.grid-animals
     //- .animals__control
     .animals__slider
-      .animals__arrow.btn-arrow.btn.animals__right
-      .animals__arrow.btn-arrow.btn.animals__left
+      //- .animals__arrow-container
+      //-   .animals__arrow.btn-arrow.btn.animals__right
+      //-   .animals__arrow.btn-arrow.btn.animals__left
         //- img(src=`../images/arrow.svg`).animals__left
       //- .btn.btn-arrow.animals__left
       //-   img(src=`../images/arrow.svg`).btn.btn-arrow.animals__right
       .animals__list 
+        .animals__arrow-container
+          .animals__arrow.btn-arrow.btn.animals__left
+          .animals__arrow.btn-arrow.btn.animals__right
         .animals__item.card.card-panda
           .card__img
             img(src=`../images/panda-card.png`)

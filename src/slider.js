@@ -31,7 +31,7 @@ function getTestimonialOrder(count) {
     a.push(key);
     return [...a];
   }, []);
-  console.log('ARRAY ORDER', res);
+  // console.log('ARRAY ORDER', res);
   return res;
 }
 getTestimonialPages();
@@ -42,14 +42,14 @@ function getCurrentSize(key) {
       console.log('BIG DESKTOP');
       currentAnimalsState.state = sliderQueryState.bigDesktop;
       clearAutoStart();
-      setAnimalCard(loadAnimalCard(getAnimalsPerPage()));
+      setAnimalCard(loadAnimalCard(getRandomCardOrder()));
       setTestimonialCard();
       break;
     case key <= 1000 && key > 640 && currentAnimalsState.state.width !== 1000:
       console.log('Small DESKTOP');
       currentAnimalsState.state = sliderQueryState.smallDesktop;
       clearAutoStart();
-      setAnimalCard(loadAnimalCard(getAnimalsPerPage()));
+      setAnimalCard(loadAnimalCard(getRandomCardOrder()));
       setTestimonialCard();
       break;
     case key <= 640 && key > 320 && currentAnimalsState.state.width !== 640:
@@ -57,7 +57,7 @@ function getCurrentSize(key) {
       currentAnimalsState.state = sliderQueryState.tablet;
       clearAutoStart();
       startAutoSlider();
-      setAnimalCard(loadAnimalCard(getAnimalsPerPage()));
+      setAnimalCard(loadAnimalCard(getRandomCardOrder()));
       setTestimonialCard();
       break;
     case key <= 320 && currentAnimalsState.state.width !== 320:
@@ -66,7 +66,7 @@ function getCurrentSize(key) {
       console.log('MOBILE');
       clearAutoStart();
       startAutoSlider();
-      setAnimalCard(loadAnimalCard(getAnimalsPerPage()));
+      setAnimalCard(loadAnimalCard(getRandomCardOrder()));
       setTestimonialCard();
       break;
 
@@ -79,8 +79,8 @@ window.addEventListener('resize', () => {
 });
 
 function loadAnimalCard(order) {
-  const renderList = order.map((o) => {
-    return createAnimalCard(animalsData[o]);
+  const renderList = order.map((o, key) => {
+    return createAnimalCard({ ...animalsData[o], className: `card${key}` });
   });
   return renderList;
 }
@@ -93,7 +93,13 @@ function loadTestimonialCard(order) {
 }
 
 function setAnimalCard(list) {
-  animalsList.innerHTML = checkNumberPerPage(list).join('');
+  const replace = document.querySelectorAll('.animals__item');
+  replace.forEach((a) => {
+    animalsList.removeChild(a);
+  });
+  animalsList.append(...list);
+  return list;
+  // animalsList.innerHTML = checkNumberPerPage(list).join('');
 }
 
 function setTestimonialCard() {
@@ -101,7 +107,7 @@ function setTestimonialCard() {
   // testimonialList.innerHTML = arr.join('');
   testimonialList.innerHTML = '';
   testimonialList.append(...arr);
-  console.log('ARR', arr);
+  // console.log('ARR', arr);
 }
 setTestimonialCard();
 
@@ -123,7 +129,7 @@ function getTestimonialPerPage() {
     start != 0 ? start : 0,
     currentAnimalsState.state.testimonialCount
   );
-  console.log(arr);
+  // console.log(arr);
   return spliceArr;
 }
 
@@ -148,6 +154,57 @@ function getRandomCardOrder(
   return arr;
 }
 
+function checkNumberPerPage(loadArray = []) {
+  return loadArray.length === currentAnimalsState.state.count
+    ? loadArray
+    : loadAnimalCard(getRandomCardOrder());
+}
+let testimonialInterval = '';
+let testimonialTimeout = '';
+
+// startAutoSlider(1000);
+
+function checkTestimonialSize() {
+  return currentAnimalsState.page < testimonialSlides - 1
+    ? currentAnimalsState.page + 1
+    : 0;
+}
+
+function startAutoSlider(length = 2000, delay = 0) {
+  testimonialInterval = setInterval(() => {
+    currentAnimalsState.page = checkTestimonialSize();
+    testimonialRange.value = currentAnimalsState.page;
+    animateSlideList(
+      'slide-right-hide',
+      'slide-right-show',
+      setTestimonialCard,
+      testimonialList
+    );
+  }, length);
+}
+
+function stopAutoSlider() {
+  clearInterval(testimonialInterval);
+  testimonialTimeout = setTimeout(() => {
+    clearTimeout(testimonialTimeout);
+    startAutoSlider(2000);
+    // alert(testimonialTimeout);
+  }, 2000);
+}
+
+// export function clearTestimonialInterval(params) {}
+export function restartTestimonialTimeout() {
+  // clearInterval(testimonialInterval);
+  // clearTimeout(testimonialTimeout);
+  clearAutoStart();
+  startAutoSlider(1000);
+}
+
+function clearAutoStart() {
+  clearInterval(testimonialInterval);
+  clearTimeout(testimonialTimeout);
+}
+
 function animateSlideList(
   hide = 'slide-left-hide',
   show = 'slide-left-show',
@@ -165,54 +222,26 @@ function animateSlideList(
   };
 }
 
-function checkNumberPerPage(loadArray = []) {
-  return loadArray.length === currentAnimalsState.state.count
-    ? loadArray
-    : loadAnimalCard(getRandomCardOrder());
-}
-let testimonialInterval = '';
-let testimonialTimeout = '';
-
-// startAutoSlider(1000);
-
-function checkTestimonialSize() {
-  return currentAnimalsState.page < testimonialSlides - 1
-    ? currentAnimalsState.page + 1
-    : 0;
-}
-
-function startAutoSlider(length = 1000, delay = 0) {
-  testimonialInterval = setInterval(() => {
-    currentAnimalsState.page = checkTestimonialSize();
-    testimonialRange.value = currentAnimalsState.page;
-    animateSlideList(
-      'slide-right-hide',
-      'slide-right-show',
-      setTestimonialCard,
-      testimonialList
-    );
-  }, length);
-}
-
-function stopAutoSlider() {
-  clearInterval(testimonialInterval);
-  testimonialTimeout = setTimeout(() => {
-    clearTimeout(testimonialTimeout);
-    startAutoSlider(1000);
-    // alert(testimonialTimeout);
-  }, 2000);
-}
-
-// export function clearTestimonialInterval(params) {}
-export function restartTestimonialTimeout() {
-  clearInterval(testimonialInterval);
-  clearTimeout(testimonialTimeout);
-  startAutoSlider(1000);
-}
-
-function clearAutoStart() {
-  clearInterval(testimonialInterval);
-  clearTimeout(testimonialTimeout);
+function animateChild(
+  hide = 'slide-left-hide',
+  show = 'slide-left-show',
+  callback,
+  list = animalsList
+) {
+  list.forEach((a, key) => {
+    a.classList.add(hide);
+    if (key === list.length - 1) {
+      a.onanimationend = () => {
+        const replace = callback();
+        replace.forEach((b) => {
+          b.classList.add(show);
+          b.onanimationend = () => {
+            b.classList.remove(show);
+          };
+        });
+      };
+    }
+  });
 }
 
 testimonialRange.addEventListener('input', (event) => {
@@ -230,16 +259,20 @@ testimonialRange.addEventListener('input', (event) => {
 
 leftAnimalsBtn.addEventListener('click', () => {
   const callback = () => {
-    setAnimalCard(loadAnimalCard(getRandomCardOrder()));
+    return setAnimalCard(loadAnimalCard(getRandomCardOrder()));
   };
-  animateSlideList('slide-left-hide', 'slide-left-show', callback);
+  const replace = document.querySelectorAll('.animals__item');
+  animateChild('slide-left-hide', 'slide-left-show', callback, replace);
+  // animateSlideList('slide-left-hide', 'slide-left-show', callback);
 });
 
 rightAnimalsBtn.addEventListener('click', () => {
   const callback = () => {
-    setAnimalCard(loadAnimalCard(getRandomCardOrder()));
+    return setAnimalCard(loadAnimalCard(getRandomCardOrder()));
   };
-  animateSlideList('slide-right-hide', 'slide-right-show', callback);
+  const replace = document.querySelectorAll('.animals__item');
+  animateChild('slide-right-hide', 'slide-right-show', callback, replace);
+  // animateChild('slide-right-hide', 'slide-right-show', callback, replace);
 });
 
 setAnimalCard(loadAnimalCard(getRandomCardOrder()));

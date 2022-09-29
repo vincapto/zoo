@@ -29,8 +29,11 @@ export function createAnimalCard({
   cardIcon,
   className = '',
 }) {
-  return `
-    <div class="animals__item card card-panda ${className}">
+  const element = document.createElement('div');
+
+  element.classList.add('animals__item', 'card', 'card', className);
+  // <div class="animals__item card card-panda ${className}">
+  const inner = `
       <div class="card__img">
         <img src="${img}" />
         <div class="card__buf-img"></div>
@@ -46,8 +49,10 @@ export function createAnimalCard({
         </div>
         <img class="card__icon" src="${cardIcon}" />
       </div>
-    </div>
-  `;
+      `;
+  // </div>
+  element.innerHTML = inner;
+  return element;
 }
 
 export function createTestimonialCard({
